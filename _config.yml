@@ -2,9 +2,7 @@
 title: Curtis
 description: "Curtis's Blog"
 url: 'http://chenbingshu.com/'
-baseurl: ''
-# google_analytics: 'UA-XXXXXX-X'
-# disqus_shortname: 'your-disqus-name'
+baseurl: '/'
 
 author:
   name: 'Curtis'
