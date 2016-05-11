@@ -6,7 +6,7 @@ url:              http://chenbingshu.com
 
 # Set to '' in case of hosting on `http://<your-github-name>.github.io`
 
-title:            Curtis's blog
+title:            Curtis
 
 # Markdown enabled, however don't use more than one paragraph (enforced by `>`)
 description:      >
@@ -22,7 +22,7 @@ image:            /public/img/nap.jpg
 color:            '#A85641'
 
 author:
-  name:           'Florian Klampfer'
+  name:           'Curtis'
 
   # Setting social media usernames will add icons at the bottom of the sidebar
   twitter:        qwtel

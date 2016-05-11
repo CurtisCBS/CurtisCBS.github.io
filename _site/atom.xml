@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
- <title>Curtis's blog</title>
+ <title>Curtis</title>
  <link href="http://chenbingshu.com/atom.xml" rel="self"/>
  <link href="http://chenbingshu.com/"/>
- <updated>2016-05-11T18:07:44+08:00</updated>
+ <updated>2016-05-11T18:26:31+08:00</updated>
  <id>http://chenbingshu.com</id>
  <author>
-   <name>Florian Klampfer</name>
+   <name>Curtis</name>
    <email></email>
  </author>
 
