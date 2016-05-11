@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
- <title>Hydejack</title>
- <link href="http://qwtel.com/hydejack/atom.xml" rel="self"/>
- <link href="http://qwtel.com/hydejack/"/>
- <updated>2016-05-11T16:09:12+08:00</updated>
- <id>http://qwtel.com</id>
+ <title>Curtis's blog</title>
+ <link href="http://chenbingshu.com/atom.xml" rel="self"/>
+ <link href="http://chenbingshu.com/"/>
+ <updated>2016-05-11T17:09:38+08:00</updated>
+ <id>http://chenbingshu.com</id>
  <author>
    <name>Florian Klampfer</name>
    <email></email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>Introducing Hydejack</title>
-   <link href="http://qwtel.com/hydejack/2016/03/08/introducing-hydejack/"/>
+   <link href="http://chenbingshu.com/2016/03/08/introducing-hydejack/"/>
    <updated>2016-03-08T00:00:00+08:00</updated>
-   <id>http://qwtel.com/2016/03/08/introducing-hydejack</id>
+   <id>http://chenbingshu.com/2016/03/08/introducing-hydejack</id>
    <content type="html">&lt;style&gt;
   .preview {
     display: none;
@@ -134,9 +134,9 @@ They will appear in the listed order.&lt;/p&gt;
  
  <entry>
    <title>Introducing Hyde</title>
-   <link href="http://qwtel.com/hydejack/2013/12/28/introducing-hyde/"/>
+   <link href="http://chenbingshu.com/2013/12/28/introducing-hyde/"/>
    <updated>2013-12-28T00:00:00+08:00</updated>
-   <id>http://qwtel.com/2013/12/28/introducing-hyde</id>
+   <id>http://chenbingshu.com/2013/12/28/introducing-hyde</id>
    <content type="html">&lt;p&gt;Hyde is a brazen two-column &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; theme that pairs a prominent sidebar with uncomplicated content. It’s based on &lt;a href=&quot;http://getpoole.com&quot;&gt;Poole&lt;/a&gt;, the Jekyll butler.&lt;/p&gt;
 
 &lt;h3 id=&quot;built-on-poole&quot;&gt;Built on Poole&lt;/h3&gt;
@@ -178,9 +178,9 @@ They will appear in the listed order.&lt;/p&gt;
  
  <entry>
    <title>Example content</title>
-   <link href="http://qwtel.com/hydejack/2012/02/07/example-content/"/>
+   <link href="http://chenbingshu.com/2012/02/07/example-content/"/>
    <updated>2012-02-07T00:00:00+08:00</updated>
-   <id>http://qwtel.com/2012/02/07/example-content</id>
+   <id>http://chenbingshu.com/2012/02/07/example-content</id>
    <content type="html">&lt;p&gt;Cum sociis natoque penatibus et magnis &lt;a href=&quot;#&quot;&gt;dis parturient montes&lt;/a&gt;, nascetur ridiculus mus. &lt;em&gt;Aenean eu leo quam.&lt;/em&gt; Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -352,9 +352,9 @@ They will appear in the listed order.&lt;/p&gt;
  
  <entry>
    <title>What&#39;s Jekyll?</title>
-   <link href="http://qwtel.com/hydejack/2012/02/06/whats-jekyll/"/>
+   <link href="http://chenbingshu.com/2012/02/06/whats-jekyll/"/>
    <updated>2012-02-06T00:00:00+08:00</updated>
-   <id>http://qwtel.com/2012/02/06/whats-jekyll</id>
+   <id>http://chenbingshu.com/2012/02/06/whats-jekyll</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From &lt;a href=&quot;https://github.com/mojombo/jekyll/blob/master/README.markdown&quot;&gt;the project’s readme&lt;/a&gt;:&lt;/p&gt;
 
 &lt;blockquote&gt;
