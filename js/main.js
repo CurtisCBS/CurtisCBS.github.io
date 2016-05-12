@@ -39,6 +39,7 @@ var Blog = {
     init:function(){
         this.formatDate();
         this.initGreetings();
+        this.pvCount();
     },
 
     /**
@@ -60,7 +61,7 @@ var Blog = {
         else if (hour < 14){
             greetingPrefix = "中午好！";
         }
-        else if (hour < 17){
+        else if (hour < 18){
             greetingPrefix = "下午好！";
         }
         else {
@@ -96,6 +97,25 @@ var Blog = {
             }
             return time;
         };
+    },
+
+    pvCount:function(){
+        var pageName = "主页";
+        if (window.location.pathname != '/'
+            || window.location.hash) {
+            pageName = document.title;
+        };
+        this.postTrack({
+
+        });
+        _hmt.push(['_trackEvent', pageName, '访问', '浏览页面']);
+    },
+
+    postTrack:function(params){
+        params.pageName = params.pageName || "主页";
+        params.action = params.action || "";
+        params.label = params.label || "";
+        _hmt.push(['_trackEvent', pageName, '', '', '']);
     }
 };
 Blog.init();
