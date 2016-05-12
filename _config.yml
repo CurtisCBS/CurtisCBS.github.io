@@ -7,10 +7,10 @@ baseurl: '/'
 author:
   name: 'Curtis'
   email: 477623879@qq.com
-  twitter_username: joshgerdes
-  facebook_username: joshgerdes
-  github_username:  joshgerdes
-  linkedin_username:  joshgerdes
+  twitter_username: Curtis_CBS
+  facebook_username: CurtisCBS
+  github_username:  CurtisCBS
+  linkedin_username:  ''
 
 defaults:
   -
