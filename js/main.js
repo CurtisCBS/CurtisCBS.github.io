@@ -106,16 +106,17 @@ var Blog = {
             pageName = document.title;
         };
         this.postTrack({
-
+            category:pageName,
+            action:"访问",
+            label:"浏览页面"
         });
-        _hmt.push(['_trackEvent', pageName, '访问', '浏览页面']);
     },
 
     postTrack:function(params){
-        params.pageName = params.pageName || "主页";
-        params.action = params.action || "";
+        params.category = params.category || "主页";
+        params.action = params.action || "点击";
         params.label = params.label || "";
-        _hmt.push(['_trackEvent', pageName, '', '', '']);
+        _hmt.push(['_trackEvent', params.category, params.action, params.label]);
     }
 };
 Blog.init();
