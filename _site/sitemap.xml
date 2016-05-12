@@ -3,6 +3,21 @@
   
     
     <url>
+      <loc>http://chenbingshu.com//2016/chrome%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/</loc>
+      
+        <lastmod>2016-05-12T00:00:00+08:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>http://chenbingshu.com//2016/performance_api%E5%9C%A8%E7%BD%91%E9%A1%B5%E6%80%A7%E8%83%BD%E7%9B%91%E6%B5%8B%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E8%A1%A8%E7%8E%B0%E5%B7%AE%E5%BC%82/</loc>
       
         <lastmod>2016-05-10T18:10:11+08:00</lastmod>
@@ -36,7 +51,7 @@
     <url>
       <loc>http://chenbingshu.com//categories/</loc>
       
-        <lastmod>2016-05-12T21:29:20+08:00</lastmod>
+        <lastmod>2016-05-12T22:04:59+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -51,7 +66,7 @@
     <url>
       <loc>http://chenbingshu.com//feed.xml</loc>
       
-        <lastmod>2016-05-12T21:29:20+08:00</lastmod>
+        <lastmod>2016-05-12T22:04:59+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -66,7 +81,7 @@
     <url>
       <loc>http://chenbingshu.com//</loc>
       
-        <lastmod>2016-05-12T21:29:20+08:00</lastmod>
+        <lastmod>2016-05-12T22:04:59+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -83,7 +98,7 @@
     <url>
       <loc>http://chenbingshu.com//tags/</loc>
       
-        <lastmod>2016-05-12T21:29:20+08:00</lastmod>
+        <lastmod>2016-05-12T22:04:59+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
