@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="baidu-site-verification" content="z5y1bbeVt3" />
 
-  <title>Welcome to Jekyll!</title>
+  <title>移动web开发者常用调试方法</title>
   <meta name="description" content="Curtis's Blog">
   <meta name="author" content="Curtis">
   <meta name="HandheldFriendly" content="True">
@@ -30,7 +30,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://chenbingshu.com///2016/welcome-to-jekyll/">
+  <link rel="canonical" href="http://chenbingshu.com///2016/%E7%A7%BB%E5%8A%A8web%E5%BC%80%E5%8F%91%E8%80%85%E5%B8%B8%E7%94%A8%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95/">
   <link rel="alternate" type="application/rss+xml" title="Curtis" href="/feed.xml">
   <script>
   var _hmt = _hmt || [];
@@ -152,28 +152,89 @@
         <article class="post-container post-container--single">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="8 Jan 2016" class="post-meta__date date">8 Jan 2016</time> &#8226; <span class="post-meta__tags">keywords: [ <a href="/tags/#jekyll">jekyll</a> ,  ]</span>
+      <time datetime="29 May 2016" class="post-meta__date date">29 May 2016</time> &#8226; <span class="post-meta__tags">keywords: [  ]</span>
     </div>
-    <h1 class="post-title">Welcome to Jekyll!</h1>
+    <h1 class="post-title">移动web开发者常用调试方法</h1>
   </header>
 
   <section class="post">
-    <p>You’ll find this post in your <code class="highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="highlighter-rouge">jekyll serve --watch</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+    <p>#chrome插件开发</p>
 
-<p>To add new posts, simply add a file in the <code class="highlighter-rouge">_posts</code> directory that follows the convention <code class="highlighter-rouge">YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+<p>移动web前端开发者经常会需要解决ios和安卓平台的兼容问题(主要还是安卓,嗯,没错)</p>
 
-<p>Jekyll also offers powerful support for code snippets:</p>
+<p>如果不能连接真机调试的话,一些比较奇葩的样式或缓存问题就需要开发者有足够的经验才能定位到问题;但是如果</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span>
-</code></pre>
-</div>
+<p>能通过wifi或usb连接电脑直接调试,就相对容易定位到问题。(文章开头真难写)</p>
 
-<p>Check out the <a href="http://jekyllrb.com">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://github.com/jekyll/jekyll-help">Jekyll’s dedicated Help repository</a>.</p>
+<p>这里主要介绍几种调试方法</p>
 
+<ul>
+  <li>ios + safari(mac)</li>
+  <li>android + chrome</li>
+  <li>微信调试</li>
+</ul>
+
+<p>##IOS+Safari 调试方法</p>
+
+<p>iso＋safari，两个苹果的亲儿子
+/Users/bingshu/CurtisCBS/_posts/2016-05-12-chrome插件开发.md
+首先打开ios的 设置－safari－高级－web检查器</p>
+
+<p>//此处应有一张图片</p>
+
+<p><img src="/images/post/20150529/ios-setting.PNG" alt="image" /></p>
+
+<p>把如上图的设置好之后，使用usb链接mac</p>
+
+<p>打开电脑的safari</p>
+
+<p><img src="/images/post/20150529/mac-safari.PNG" alt="image" /></p>
+
+<p>safari的菜单栏－开发 就能看到链接的手机以及当前手机打开的网页</p>
+
+<p><img src="/images/post/20150529/safari-debug.png" alt="image" /></p>
+
+<p>*缺点：只有当ios的safari等少部分支持的浏览器中打开支持这种调试方法，如微信和应用内webview很多都</p>
+
+<p>不支持这样调试，不过本人比较常用这种方法</p>
+
+<p>##android + chrome</p>
+
+<p>android(据说需要版本4.0以上)的调试方法首先需要将android机器设置到开发者模式</p>
+
+<p>方法：</p>
+
+<p>好像是 打开设置－关于本机－安卓版本号，然后连续点击七次（谁能解释一下为什么要点击七次吗？）</p>
+
+<p>然后返回上一界面，就应该能看到有个开发者模式</p>
+
+<p>点击进入，把usb调试的选项钩上</p>
+
+<p>然后链接usb到电脑</p>
+
+<p>电脑打开chrome浏览器</p>
+
+<p>在地址栏上输入 chrome://inspect/#devices</p>
+
+<p><img src="/images/post/20150529/chrome-debug.png" alt="image" /></p>
+
+<p>我手上也没有安卓真机，没法截图</p>
+
+<p>在安卓机上的浏览器打开网页，如上图就有手机当前打开网页的选项</p>
+
+<p>可以通过点击选项的inspect按钮，打开调试</p>
+
+<p>接下来的调试方法就和在chrome打开网页的调试方法一样了</p>
+
+<p>##微信调试</p>
+
+<p>微信调试通过下载是微信官方提供给微信web开发者的调试应用来实现的</p>
+
+<p><a href="https://mp.weixin.qq.com/wiki/10/e5f772f4521da17fa0d7304f68b97d7e.html">微信web开发者工具下载传送们</a></p>
+
+<p><img src="/images/post/20150529/wx-download.png" alt="image" /></p>
+
+<p>下载之后打开应用</p>
 
   </section>
   
