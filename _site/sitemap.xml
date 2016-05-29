@@ -3,9 +3,24 @@
   
     
     <url>
+      <loc>http://chenbingshu.com//2016/backbone%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/</loc>
+      
+        <lastmod>2016-05-29T08:00:00+08:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>http://chenbingshu.com//2016/%E7%A7%BB%E5%8A%A8web%E5%BC%80%E5%8F%91%E8%80%85%E5%B8%B8%E7%94%A8%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95/</loc>
       
-        <lastmod>2016-05-29T00:00:00+08:00</lastmod>
+        <lastmod>2016-05-29T01:33:11+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -20,7 +35,7 @@
     <url>
       <loc>http://chenbingshu.com//2016/chrome%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/</loc>
       
-        <lastmod>2016-05-12T00:00:00+08:00</lastmod>
+        <lastmod>2016-05-12T21:13:12+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -51,7 +66,7 @@
     <url>
       <loc>http://chenbingshu.com//categories/</loc>
       
-        <lastmod>2016-05-29T21:27:59+08:00</lastmod>
+        <lastmod>2016-05-29T22:01:27+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -66,7 +81,7 @@
     <url>
       <loc>http://chenbingshu.com//feed.xml</loc>
       
-        <lastmod>2016-05-29T21:27:59+08:00</lastmod>
+        <lastmod>2016-05-29T22:01:27+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -81,7 +96,7 @@
     <url>
       <loc>http://chenbingshu.com//</loc>
       
-        <lastmod>2016-05-29T21:27:59+08:00</lastmod>
+        <lastmod>2016-05-29T22:01:27+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -98,7 +113,22 @@
     <url>
       <loc>http://chenbingshu.com//tags/</loc>
       
-        <lastmod>2016-05-29T21:27:59+08:00</lastmod>
+        <lastmod>2016-05-29T22:01:27+08:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://chenbingshu.com//page2/</loc>
+      
+        <lastmod>2016-05-29T22:01:27+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
