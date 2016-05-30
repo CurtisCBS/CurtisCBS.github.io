@@ -5,11 +5,12 @@ categories: [前端]
 tags: [性能监测,performance,兼容]
 ---
 
-##1. 为什么要做性能监测?
-
+为什么要做性能监测?
+---
 著名的谁说过一句话，如果连性能问题在哪里都不知道，如何做优化？所以，性能监测很明显是为了性能优化！
 
-##2. Performance对象
+Performance对象
+---
 html5提供了很多有利于前端攻城狮的webapi[(技术文档)](https://developer.mozilla.org/zh-CN/docs/Web/API)
 以下内容主要讲的是webapi的performace接口及相关使用
 
@@ -107,6 +108,7 @@ var sourceEntries = window.performance.getEntries();
 	var jsLoadTime = endTime - startTime;
 可以大致统计到js资源加载的时间
 
-##3. 浏览器支持&兼容
+3. 浏览器支持&兼容
+---
 ![image]({{"images/post/20150510/support.png" | prepend: site.baseurl }})
 在用于项目中使用的时候，发现getEntries方法紧在chrome支持，用于移动端性能监测时候，getEntries也只能在安卓手机获取到资源的时间参数，具体的资源还是只能靠打点来实现。我有什么办法呢？没有。做到后面发现主要的群体ios不能监测到。。。。白做了！！！

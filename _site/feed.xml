@@ -5,13 +5,13 @@
     <description>Curtis&#39;s Blog</description>
     <link>http://chenbingshu.com///</link>
     <atom:link href="http://chenbingshu.com///feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 29 May 2016 22:01:27 +0800</pubDate>
-    <lastBuildDate>Sun, 29 May 2016 22:01:27 +0800</lastBuildDate>
+    <pubDate>Mon, 30 May 2016 16:49:18 +0800</pubDate>
+    <lastBuildDate>Mon, 30 May 2016 16:49:18 +0800</lastBuildDate>
     <generator>Jekyll v3.1.3</generator>
     
       <item>
         <title>backbone使用心得</title>
-        <description>&lt;p&gt;#这篇还没开始,只是先写个标题放着&lt;/p&gt;
+        <description>&lt;h2 id=&quot;section&quot;&gt;这篇还没开始,只是先写个标题放着&lt;/h2&gt;
 </description>
         <pubDate>Sun, 29 May 2016 08:00:00 +0800</pubDate>
         <link>http://chenbingshu.com///2016/backbone%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/</link>
@@ -44,13 +44,10 @@
   &lt;li&gt;微信调试&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;##IOS+Safari 调试方法&lt;/p&gt;
-
+&lt;h2 id=&quot;iossafari-&quot;&gt;IOS+Safari 调试方法&lt;/h2&gt;
 &lt;p&gt;iso＋safari，两个苹果的亲儿子
 /Users/bingshu/CurtisCBS/_posts/2016-05-12-chrome插件开发.md
 首先打开ios的 设置－safari－高级－web检查器&lt;/p&gt;
-
-&lt;p&gt;//此处应有一张图片&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/post/20150529/ios-setting.PNG&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
@@ -68,8 +65,7 @@
 
 &lt;p&gt;不支持这样调试，不过本人比较常用这种方法&lt;/p&gt;
 
-&lt;p&gt;##android + chrome&lt;/p&gt;
-
+&lt;h2 id=&quot;android--chrome&quot;&gt;android + chrome&lt;/h2&gt;
 &lt;p&gt;android(据说需要版本4.0以上)的调试方法首先需要将android机器设置到开发者模式&lt;/p&gt;
 
 &lt;p&gt;方法：&lt;/p&gt;
@@ -96,8 +92,7 @@
 
 &lt;p&gt;接下来的调试方法就和在chrome打开网页的调试方法一样了&lt;/p&gt;
 
-&lt;p&gt;##微信调试&lt;/p&gt;
-
+&lt;h2 id=&quot;section&quot;&gt;微信调试&lt;/h2&gt;
 &lt;p&gt;微信调试通过下载是微信官方提供给微信web开发者的调试应用来实现的&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/wiki/10/e5f772f4521da17fa0d7304f68b97d7e.html&quot;&gt;微信web开发者工具下载传送们&lt;/a&gt;&lt;/p&gt;
@@ -139,8 +134,7 @@
         <title>chrome插件开发</title>
         <description>&lt;p&gt;之前因为公司业务的需求，阉割了在web端的账号密码登录流程，只能通过发送短信验证码的方式来登录，尽管如此，原来老的登录接口还在。为了提高开发效率，特别是在测试环节，开发了一个chrome插件来继续使用老版的接口来实现用户的帐号密码登录&lt;/p&gt;
 
-&lt;p&gt;##开发chrome extension的需要知道的基本知识&lt;/p&gt;
-
+&lt;h2 id=&quot;chrome-extension&quot;&gt;开发chrome extension的需要知道的基本知识&lt;/h2&gt;
 &lt;p&gt;chrome插件是主要用三部分构成&lt;/p&gt;
 
 &lt;p&gt;*.浏览器地址栏右侧图标点击弹出的窗口页
@@ -150,7 +144,6 @@
 &lt;p&gt;三个部分可通过chrome对象方法进行通信&lt;/p&gt;
 
 &lt;h2 id=&quot;mainfest&quot;&gt;mainfest配置文件&lt;/h2&gt;
-
 &lt;p&gt;首先创建一个文件夹，用于存放当前插件，然后创建一个mainfest.json文件
 该文件主要是像chrome浏览器解释该插件需要哪些依赖
 …..算了，先不写了，好困，下次再写吧
@@ -171,12 +164,11 @@
     
       <item>
         <title>Performance Api在网页性能监测的使用和表现差异</title>
-        <description>&lt;p&gt;##1. 为什么要做性能监测?&lt;/p&gt;
-
+        <description>&lt;h2 id=&quot;section&quot;&gt;为什么要做性能监测?&lt;/h2&gt;
 &lt;p&gt;著名的谁说过一句话，如果连性能问题在哪里都不知道，如何做优化？所以，性能监测很明显是为了性能优化！&lt;/p&gt;
 
-&lt;p&gt;##2. Performance对象
-html5提供了很多有利于前端攻城狮的webapi&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/API&quot;&gt;(技术文档)&lt;/a&gt;
+&lt;h2 id=&quot;performance&quot;&gt;Performance对象&lt;/h2&gt;
+&lt;p&gt;html5提供了很多有利于前端攻城狮的webapi&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/API&quot;&gt;(技术文档)&lt;/a&gt;
 以下内容主要讲的是webapi的performace接口及相关使用&lt;/p&gt;
 
 &lt;p&gt;在chrome控制台打印window.performance,可查看performance提供的api,如图:&lt;/p&gt;
@@ -280,9 +272,13 @@ var jsLoadTime = endTime - startTime; 可以大致统计到js资源加载的时�
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;##3. 浏览器支持&amp;amp;兼容
-&lt;img src=&quot;/images/post/20150510/support.png&quot; alt=&quot;image&quot; /&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;h2 id=&quot;section-1&quot;&gt;浏览器支持&amp;amp;兼容&lt;/h2&gt;
+    &lt;p&gt;&lt;img src=&quot;/images/post/20150510/support.png&quot; alt=&quot;image&quot; /&gt;
 在用于项目中使用的时候，发现getEntries方法紧在chrome支持，用于移动端性能监测时候，getEntries也只能在安卓手机获取到资源的时间参数，具体的资源还是只能靠打点来实现。我有什么办法呢？没有。做到后面发现主要的群体ios不能监测到。。。。白做了！！！&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
 </description>
         <pubDate>Tue, 10 May 2016 18:10:11 +0800</pubDate>
         <link>http://chenbingshu.com///2016/performance_api%E5%9C%A8%E7%BD%91%E9%A1%B5%E6%80%A7%E8%83%BD%E7%9B%91%E6%B5%8B%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E8%A1%A8%E7%8E%B0%E5%B7%AE%E5%BC%82/</link>
