@@ -5,9 +5,68 @@
     <description>Curtis&#39;s Blog</description>
     <link>http://chenbingshu.com///</link>
     <atom:link href="http://chenbingshu.com///feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 30 May 2016 22:14:00 +0800</pubDate>
-    <lastBuildDate>Mon, 30 May 2016 22:14:00 +0800</lastBuildDate>
-    <generator>Jekyll v3.1.3</generator>
+    <pubDate>Mon, 27 Jun 2016 17:56:31 +0800</pubDate>
+    <lastBuildDate>Mon, 27 Jun 2016 17:56:31 +0800</lastBuildDate>
+    <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>web scroll的滚动惯性</title>
+        <description>&lt;p&gt;在上个公司的最后一个版本。( &lt;a href=&quot;http://ichuanyi.com/m/page/tomorrow_recommend/&quot;&gt;传送门&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;入口放在app的主页,所以对页面的动画效果和性能(流畅度)有较大的要求&lt;/p&gt;
+
+&lt;p&gt;页面的在交互上做了较多动画,属于交互比较复杂的单页应用&lt;/p&gt;
+
+&lt;p&gt;其中用户在点击顶部的”地址栏”,底部的”再推荐”,以及无推荐次数之后点击”再推荐” 这三部分弹出来的页面&lt;/p&gt;
+
+&lt;p&gt;是显示在原本主要内容层级之上的,position值为fixed&lt;/p&gt;
+
+&lt;p&gt;在提测时候发现在native内滚动这种长页面的时候,当用户手一离开屏幕时就会停止滚动&lt;/p&gt;
+
+&lt;p&gt;该开始以为是用户的一系列touch事件在dom冒泡了。&lt;/p&gt;
+
+&lt;p&gt;然后在滚动的元素容器设置了event.stopPropagation()事件阻止所有事件的冒泡&lt;/p&gt;
+
+&lt;p&gt;发现并没有什么乱用&lt;/p&gt;
+
+&lt;p&gt;最后在mozilla的开发者文档找到了-webkit-overflow-scrolling&lt;/p&gt;
+
+&lt;p&gt;然后通过设置该属性值为touch竟然生效了!!!!!!!&lt;/p&gt;
+
+&lt;p&gt;!!!!!&lt;/p&gt;
+
+&lt;p&gt;mozilla对该属性是这么描述的&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   The -webkit-overflow-scrolling CSS property controls whether or not touch devices use momentum-based scrolling for the given element.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;该css属性控制是否滚动是基于动量的。。。这翻译听不下去了&lt;/p&gt;
+
+&lt;p&gt;就是看你滚动是否是需要滚行吧!!这么翻译果然好多了&lt;/p&gt;
+
+&lt;p&gt;该属性可设置两种值&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;auto:设置为auto时,用户的手离开屏幕即停止滚动
+
+touch:设置为touch时,用户手离开屏幕时会基于之前的动量递减(即保持一定的惯性)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;( &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-overflow-scrolling&quot;&gt;官方解释&lt;/a&gt;)&lt;/p&gt;
+</description>
+        <pubDate>Mon, 27 Jun 2016 08:00:00 +0800</pubDate>
+        <link>http://chenbingshu.com///2016/webscroll%E7%9A%84%E6%BB%9A%E5%8A%A8%E6%83%AF%E6%80%A7/</link>
+        <guid isPermaLink="true">http://chenbingshu.com///2016/webscroll%E7%9A%84%E6%BB%9A%E5%8A%A8%E6%83%AF%E6%80%A7/</guid>
+        
+        <category>scroll</category>
+        
+        <category>惯性</category>
+        
+        
+        <category>前端</category>
+        
+      </item>
     
       <item>
         <title>backbone使用心得</title>

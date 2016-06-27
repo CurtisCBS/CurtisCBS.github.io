@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="baidu-site-verification" content="z5y1bbeVt3" />
 
-  <title>Categories</title>
+  <title>web scroll的滚动惯性</title>
   <meta name="description" content="Curtis's Blog">
   <meta name="author" content="Curtis">
   <meta name="HandheldFriendly" content="True">
@@ -30,7 +30,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://chenbingshu.com///categories/">
+  <link rel="canonical" href="http://chenbingshu.com///2016/webscroll%E7%9A%84%E6%BB%9A%E5%8A%A8%E6%83%AF%E6%80%A7/">
   <link rel="alternate" type="application/rss+xml" title="Curtis" href="/feed.xml">
   <script>
   var _hmt = _hmt || [];
@@ -149,59 +149,64 @@
 
     <div class="content-wrapper">
       <div class="content-wrapper__inner">
-        <h2>Categories:</h2>
-<div class="categories"> 
- 
-  <a href="#前端">前端</a>
+        <article class="post-container post-container--single">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="27 Jun 2016" class="post-meta__date date">27 Jun 2016</time> &#8226; <span class="post-meta__tags">keywords: [ <a href="/tags/#scroll">scroll</a> , <a href="/tags/#惯性">惯性</a> ,  ]</span>
+    </div>
+    <h1 class="post-title">web scroll的滚动惯性</h1>
+  </header>
 
+  <section class="post">
+    <p>在上个公司的最后一个版本。( <a href="http://ichuanyi.com/m/page/tomorrow_recommend/">传送门</a>)</p>
+
+<p>入口放在app的主页,所以对页面的动画效果和性能(流畅度)有较大的要求</p>
+
+<p>页面的在交互上做了较多动画,属于交互比较复杂的单页应用</p>
+
+<p>其中用户在点击顶部的”地址栏”,底部的”再推荐”,以及无推荐次数之后点击”再推荐” 这三部分弹出来的页面</p>
+
+<p>是显示在原本主要内容层级之上的,position值为fixed</p>
+
+<p>在提测时候发现在native内滚动这种长页面的时候,当用户手一离开屏幕时就会停止滚动</p>
+
+<p>该开始以为是用户的一系列touch事件在dom冒泡了。</p>
+
+<p>然后在滚动的元素容器设置了event.stopPropagation()事件阻止所有事件的冒泡</p>
+
+<p>发现并没有什么乱用</p>
+
+<p>最后在mozilla的开发者文档找到了-webkit-overflow-scrolling</p>
+
+<p>然后通过设置该属性值为touch竟然生效了!!!!!!!</p>
+
+<p>!!!!!</p>
+
+<p>mozilla对该属性是这么描述的</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>   The -webkit-overflow-scrolling CSS property controls whether or not touch devices use momentum-based scrolling for the given element.
+</code></pre>
 </div>
 
-<!-- iterate through all categories on the site --> 
- 
-  <!-- for each tag, create an anchor by using the tag name as an id --> 
-  <div id="前端">  
-    <h3> 前端 </h3>  <!-- for create a heading --> 
+<p>该css属性控制是否滚动是基于动量的。。。这翻译听不下去了</p>
 
-    <ul> <!-- create the list of posts -->
-      <!-- iterate through all the posts on the site --> 
-       
-        <!-- list only those which contain the current tag --> 
-         
-            <li>
-              <a href="/2016/webscroll%E7%9A%84%E6%BB%9A%E5%8A%A8%E6%83%AF%E6%80%A7/">web scroll的滚动惯性</a>
-            </li>
-        
-       
-        <!-- list only those which contain the current tag --> 
-         
-            <li>
-              <a href="/2016/backbone%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/">backbone使用心得</a>
-            </li>
-        
-       
-        <!-- list only those which contain the current tag --> 
-         
-            <li>
-              <a href="/2016/%E7%A7%BB%E5%8A%A8web%E5%BC%80%E5%8F%91%E8%80%85%E5%B8%B8%E7%94%A8%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95/">移动web开发者常用调试方法</a>
-            </li>
-        
-       
-        <!-- list only those which contain the current tag --> 
-         
-            <li>
-              <a href="/2016/chrome%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/">chrome插件开发</a>
-            </li>
-        
-       
-        <!-- list only those which contain the current tag --> 
-         
-            <li>
-              <a href="/2016/performance_api%E5%9C%A8%E7%BD%91%E9%A1%B5%E6%80%A7%E8%83%BD%E7%9B%91%E6%B5%8B%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E8%A1%A8%E7%8E%B0%E5%B7%AE%E5%BC%82/">Performance Api在网页性能监测的使用和表现差异</a>
-            </li>
-        
-      
-    </ul>
-  </div>
+<p>就是看你滚动是否是需要滚行吧!!这么翻译果然好多了</p>
+
+<p>该属性可设置两种值</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>auto:设置为auto时,用户的手离开屏幕即停止滚动
+
+touch:设置为touch时,用户手离开屏幕时会基于之前的动量递减(即保持一定的惯性)
+</code></pre>
+</div>
+
+<p>( <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-overflow-scrolling">官方解释</a>)</p>
+
+  </section>
+  
+</article>
+
+
 
       </div>
 
