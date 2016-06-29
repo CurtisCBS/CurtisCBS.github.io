@@ -187,16 +187,69 @@ model1.get('name');
 
 <p>下面会讲到model和view的结合使用</p>
 
-<p>model的get和set方法</p>
+<h2 id="modelgetset">model的get和set方法</h2>
 
 <p>get：获取当前model某属性的值</p>
 
 <p>set：设置当前model某个属性的值，可以单个属性，也可以为一个json对象,设置了属性值之后会触发change事件，可通过设置view来监听model某属性来驱动视图进行更新</p>
 
-<h2 id="view">view</h2>
-<p>view是backbone的提供的视图结构</p>
+<h2 id="initialize">initialize</h2>
+<p>view对象的构造函数,即实例化对象的时候调用</p>
 
-<p>10点了，洗洗睡了</p>
+<h2 id="view">view</h2>
+
+<p>于2016.06.29继续写了</p>
+
+<p>view是backbone的提供的视图结构,对于简单的单页应用来说(SPA)是最重要的部分;</p>
+
+<p>因为简单的单页应用其实并不需要通过control层来实现model和view的,两者之间增加一个control层</p>
+
+<p>反而使得框架接口变得复杂</p>
+
+<h2 id="events">events</h2>
+
+<p>events主要是绑定了当前模块试图的一些绑定事件,使用方法如下:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var view = Backbone.View.extend({
+
+  events: {
+    "click .testBtn":"bindBtn"
+  },
+
+  bindBtn:function(){
+    //具体实现
+  }
+
+});
+</code></pre>
+</div>
+
+<h2 id="initialize-1">initialize</h2>
+<p>view对象的构造函数,即实例化对象的时候调用</p>
+
+<h2 id="el">el</h2>
+
+<p>backboneView的一个重要属性,el是当前模块对应的dom元素,</p>
+
+<p>如果实例化对象的时候没有传入el属性。el会是一个空的div包裹着模版渲染出来的页面</p>
+
+<p>使用如下:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var view = Backbone.View.extend({
+});
+
+new view({
+    el:'body'
+})
+
+或
+
+var viewObj = new view({});
+$("body").html(viewObj.$el);
+</code></pre>
+</div>
+
+<p>上面两个方法都是把view对象实例化后渲染的插入到body中去</p>
 
   </section>
   

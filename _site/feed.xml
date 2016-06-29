@@ -5,8 +5,8 @@
     <description>Curtis&#39;s Blog</description>
     <link>http://chenbingshu.com///</link>
     <atom:link href="http://chenbingshu.com///feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 27 Jun 2016 17:56:31 +0800</pubDate>
-    <lastBuildDate>Mon, 27 Jun 2016 17:56:31 +0800</lastBuildDate>
+    <pubDate>Wed, 29 Jun 2016 17:50:23 +0800</pubDate>
+    <lastBuildDate>Wed, 29 Jun 2016 17:50:23 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -99,16 +99,69 @@ model1.get(&#39;name&#39;);
 
 &lt;p&gt;下面会讲到model和view的结合使用&lt;/p&gt;
 
-&lt;p&gt;model的get和set方法&lt;/p&gt;
+&lt;h2 id=&quot;modelgetset&quot;&gt;model的get和set方法&lt;/h2&gt;
 
 &lt;p&gt;get：获取当前model某属性的值&lt;/p&gt;
 
 &lt;p&gt;set：设置当前model某个属性的值，可以单个属性，也可以为一个json对象,设置了属性值之后会触发change事件，可通过设置view来监听model某属性来驱动视图进行更新&lt;/p&gt;
 
-&lt;h2 id=&quot;view&quot;&gt;view&lt;/h2&gt;
-&lt;p&gt;view是backbone的提供的视图结构&lt;/p&gt;
+&lt;h2 id=&quot;initialize&quot;&gt;initialize&lt;/h2&gt;
+&lt;p&gt;view对象的构造函数,即实例化对象的时候调用&lt;/p&gt;
 
-&lt;p&gt;10点了，洗洗睡了&lt;/p&gt;
+&lt;h2 id=&quot;view&quot;&gt;view&lt;/h2&gt;
+
+&lt;p&gt;于2016.06.29继续写了&lt;/p&gt;
+
+&lt;p&gt;view是backbone的提供的视图结构,对于简单的单页应用来说(SPA)是最重要的部分;&lt;/p&gt;
+
+&lt;p&gt;因为简单的单页应用其实并不需要通过control层来实现model和view的,两者之间增加一个control层&lt;/p&gt;
+
+&lt;p&gt;反而使得框架接口变得复杂&lt;/p&gt;
+
+&lt;h2 id=&quot;events&quot;&gt;events&lt;/h2&gt;
+
+&lt;p&gt;events主要是绑定了当前模块试图的一些绑定事件,使用方法如下:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var view = Backbone.View.extend({
+
+  events: {
+    &quot;click .testBtn&quot;:&quot;bindBtn&quot;
+  },
+
+  bindBtn:function(){
+    //具体实现
+  }
+
+});
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;initialize-1&quot;&gt;initialize&lt;/h2&gt;
+&lt;p&gt;view对象的构造函数,即实例化对象的时候调用&lt;/p&gt;
+
+&lt;h2 id=&quot;el&quot;&gt;el&lt;/h2&gt;
+
+&lt;p&gt;backboneView的一个重要属性,el是当前模块对应的dom元素,&lt;/p&gt;
+
+&lt;p&gt;如果实例化对象的时候没有传入el属性。el会是一个空的div包裹着模版渲染出来的页面&lt;/p&gt;
+
+&lt;p&gt;使用如下:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var view = Backbone.View.extend({
+});
+
+new view({
+    el:&#39;body&#39;
+})
+
+或
+
+var viewObj = new view({});
+$(&quot;body&quot;).html(viewObj.$el);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;上面两个方法都是把view对象实例化后渲染的插入到body中去&lt;/p&gt;
 </description>
         <pubDate>Sun, 29 May 2016 08:00:00 +0800</pubDate>
         <link>http://chenbingshu.com///2016/backbone%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/</link>
