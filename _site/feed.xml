@@ -5,9 +5,72 @@
     <description>Curtis&#39;s Blog</description>
     <link>http://chenbingshu.com///</link>
     <atom:link href="http://chenbingshu.com///feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 29 Jun 2016 17:50:23 +0800</pubDate>
-    <lastBuildDate>Wed, 29 Jun 2016 17:50:23 +0800</lastBuildDate>
+    <pubDate>Thu, 30 Jun 2016 21:59:13 +0800</pubDate>
+    <lastBuildDate>Thu, 30 Jun 2016 21:59:13 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>js节流throttle函数</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;节流函数&lt;/h2&gt;
+
+&lt;p&gt;在前端页面,常出现用户频繁操作dom元素导致需要频繁更新视图或者发送请求。&lt;/p&gt;
+
+&lt;p&gt;如果是后者的话,还可能会出现异步请求结果返回与发送时间的不顺序。&lt;/p&gt;
+
+&lt;p&gt;常用于解决这种问题的一个方法就是通过节流函数,把用户短时间内的频繁操作进行累加,最后一次执行&lt;/p&gt;
+
+&lt;p&gt;这样不仅提高性能而且更防止了上面提到的异步请求时间不同步的问题&lt;/p&gt;
+
+&lt;p&gt;在前端实现节流函数一般是使用定时器实现&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;最简单的节流函数&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function throttle(){
+    if(timer){
+        clearTimer(timer)
+    }
+    timer = setTimeout(function(){},delay);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这是最简单的节流函数。通过判断是否已经存在定时器,过滤掉用户之前的操作,直到delay计时完才进行函数执行&lt;/p&gt;
+
+&lt;h2 id=&quot;underscorethrottle&quot;&gt;underscore的throttle&lt;/h2&gt;
+
+&lt;p&gt;underscore是一个又好又快又小的库,快主要是因为他是采用函数式编程(来源于一位老师的话)&lt;/p&gt;
+
+&lt;p&gt;underscore也听过了如上的throttle函数(&lt;a href=&quot;http://underscorejs.org/#throttle&quot;&gt;英文文档&lt;/a&gt;,&lt;a href=&quot;http://www.css88.com/doc/underscore/#throttle&quot;&gt;中文文档&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;来自官方的一个使用例子&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var throttled = _.throttle(updatePosition, 100);
+$(window).scroll(throttled);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;window的resize和scroll都是会频繁触犯事件的。&lt;/p&gt;
+
+&lt;p&gt;所以通过throttle函数加以过滤可以大大提高渲染性能&lt;/p&gt;
+
+&lt;h2 id=&quot;vuedebounce&quot;&gt;vue的debounce&lt;/h2&gt;
+
+&lt;p&gt;vue框架自带的input的debounce实现也是节流函数的一种。(&lt;a href=&quot;https://vuejs.org/guide/forms.html#debounce&quot;&gt;文档&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;并且对于点击等用户主动触发的事件同样可以通过设置debounce来实现。&lt;/p&gt;
+</description>
+        <pubDate>Thu, 30 Jun 2016 18:00:00 +0800</pubDate>
+        <link>http://chenbingshu.com///2016/js%E8%8A%82%E6%B5%81throttle%E5%87%BD%E6%95%B0/</link>
+        <guid isPermaLink="true">http://chenbingshu.com///2016/js%E8%8A%82%E6%B5%81throttle%E5%87%BD%E6%95%B0/</guid>
+        
+        <category>throttle</category>
+        
+        <category>节流</category>
+        
+        
+        <category>前端</category>
+        
+      </item>
     
       <item>
         <title>web scroll的滚动惯性</title>
