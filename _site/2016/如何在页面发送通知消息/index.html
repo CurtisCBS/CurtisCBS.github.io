@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="baidu-site-verification" content="z5y1bbeVt3" />
 
-  <title>Curtis</title>
+  <title>如何在页面发送通知消息</title>
   <meta name="description" content="Curtis's Blog">
   <meta name="author" content="Curtis">
   <meta name="HandheldFriendly" content="True">
@@ -30,7 +30,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://chenbingshu.com///page2/">
+  <link rel="canonical" href="http://chenbingshu.com///2016/%E5%A6%82%E4%BD%95%E5%9C%A8%E9%A1%B5%E9%9D%A2%E5%8F%91%E9%80%81%E9%80%9A%E7%9F%A5%E6%B6%88%E6%81%AF/">
   <link rel="alternate" type="application/rss+xml" title="Curtis" href="/feed.xml">
   <script>
   var _hmt = _hmt || [];
@@ -149,48 +149,97 @@
 
     <div class="content-wrapper">
       <div class="content-wrapper__inner">
-        <div class="main-post-list">
+        <article class="post-container post-container--single">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="1 Jul 2016" class="post-meta__date date">1 Jul 2016</time> &#8226; <span class="post-meta__tags">keywords: [ <a href="/tags/#通知">通知</a> ,  ]</span>
+    </div>
+    <h1 class="post-title">如何在页面发送通知消息</h1>
+  </header>
 
-  <ol class="post-list">
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2016/chrome%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" title="chrome插件开发">chrome插件开发</a></h2>
-        <p class="excerpt">之前因为公司业务的需求，阉割了在web端的账号密码登录流程，只能通过发送短信验证码的方式来登录，尽管如此，原来老的登录接口还在。为了提高开发效率，特别是在测试环节，开发了一个chrome插件来继续使用老版的接口来实现用户的帐号密码登录
+  <section class="post">
+    <p>如果你的网站需要在用户登陆或者在某些特定时刻向用户发送通知。</p>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="12 May 2016" class="post-list__meta--date date">12 May 2016</time> &#8226; <span class="post-meta__tags">keywords: [ <a href="/tags/#chrome插件">chrome插件</a>, <a href="/tags/#开发">开发</a>, ]</span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2016/performance_api%E5%9C%A8%E7%BD%91%E9%A1%B5%E6%80%A7%E8%83%BD%E7%9B%91%E6%B5%8B%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E8%A1%A8%E7%8E%B0%E5%B7%AE%E5%BC%82/" title="Performance Api在网页性能监测的使用和表现差异">Performance Api在网页性能监测的使用和表现差异</a></h2>
-        <p class="excerpt"><h2 id="section">为什么要做性能监测?</h2>
-著名的谁说过一句话，如果连性能问题在哪里都不知道，如何做优化？所以，性能监测很明显是为了性能优化！
+<p>这个webapi可能会起到效果</p>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="10 May 2016" class="post-list__meta--date date">10 May 2016</time> &#8226; <span class="post-meta__tags">keywords: [ <a href="/tags/#性能监测">性能监测</a>, <a href="/tags/#performance">performance</a>, <a href="/tags/#兼容">兼容</a>, ]</span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-  </ol>
+<h2 id="notification">Notification</h2>
 
-  <hr class="post-list__divider ">
+<p>Web Notifications API 使页面可以发出通知，通知将被显示在页面之外的系统层面上（通常使用操作系统的标准通知机制，但是在不同的平台和浏览器上的表现会有差异）。这个功能使  web 应用可以向用户发送信息，即使应用处于空闲状态。最明显的用例之一是一个网页版电子邮件应用程序，每当用户收到了一封新的电子邮件都需要通知用户，即使用户正在使用另一个应用程序。</p>
 
-  
-      <nav class="pagination" role="navigation">
-  
-    
-      <a rel="prev" class="posts newer btn small" href="/#blog" title="Previous Page">← Newer Posts</a>
-    
-  
+<p>诸如在线团队协作平台(如tower)或者聊天系统,都需要主动向用户发送通知,让用户可以及时收到最新动态</p>
 
-  <span class="pagination__page-number">Page 2 of 2</span>
+<p>tower就是通过这个接口像用户发送通知消息的。</p>
 
-  
-</nav>
-  
+<h2 id="section">权限</h2>
 
+<p>使用Notification接口时需要像用户发送授权请求(如获取用户地址位置信息等需要用户隐私的接口都需要用户授权)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Notification.requestPermission( function(status) {
+
+});
+</code></pre>
 </div>
+
+<p>仅当status为granted时表示用户接受通知</p>
+
+<p>status有三种状态:default,granted,denied</p>
+
+<p>*default一般是用户未处理授权请求</p>
+
+<p>*granted表示用户接受通知的授权</p>
+
+<p>*denied表示用户拒绝接受通知</p>
+
+<h2 id="notification-1">Notification对象</h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>  var notification = new Notification(title,{
+    body:string,
+    icon:imageUrl
+  });
+</code></pre>
+</div>
+
+<p>Notification对象有三个参数,分别是通知标题,通知内容,还有图标</p>
+
+<p>显示效果如下:</p>
+
+<p><img src="/images/post/20160701/notification.png" alt="image" /></p>
+
+<h2 id="section-1">回调函数</h2>
+
+<p>notification有4个回调函数</p>
+
+<p>*onshow:当通知被显示给用户时触发。</p>
+
+<p>*onclick:当用户点击通知时触发。</p>
+
+<p>*onclose:当通知被关闭时触发。</p>
+
+<p>*onerror:当通知发生错误的时候触发。这通常是因为通知由于某些原因而无法显示。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Notification.requestPermission( function(status) {
+
+    var notification = new Notification("标题");
+
+    notification.onshow = function(){};
+
+    notification.onclick = function(){};
+
+    notification.onclose = function(){};
+
+    notification.onerror = function(){};
+
+});
+</code></pre>
+</div>
+
+<p>(<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/notification/Using_Web_Notifications">接口文档</a>);</p>
+
+  </section>
+  
+</article>
+
+
+
       </div>
 
       <footer class="footer">
