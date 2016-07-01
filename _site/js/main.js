@@ -40,6 +40,7 @@ var Blog = {
         this.formatDate();
         this.initGreetings();
         this.pvCount();
+        this.changeToBlogPage();
     },
 
     /**
@@ -100,11 +101,13 @@ var Blog = {
     },
 
     pvCount:function(){
+        if(window.location.host == "127.0.0.1:4000"){
+            return;
+        }
         var pageName = "主页";
-        if (window.location.pathname != '/'
-            || window.location.hash) {
+        if (!this.isIndexPage()) {
             pageName = document.title;
-        };
+        }
         this.postTrack({
             category:pageName,
             action:"访问",
@@ -117,6 +120,19 @@ var Blog = {
         params.action = params.action || "点击";
         params.label = params.label || "";
         _hmt.push(['_trackEvent', params.category, params.action, params.label]);
+    },
+
+    changeToBlogPage:function () {
+        if(this.isIndexPage()) {
+            setTimeout(function () {
+                $('.blog-button').trigger('click');
+                // window.location.href = "/#blog";
+            },2500);
+        }
+    },
+
+    isIndexPage:function () {
+        return (window.location.pathname != '/' || window.location.hash)? false: true;
     }
 };
 Blog.init();
