@@ -36,10 +36,14 @@ $(document).ready(function () {
 
 
 var Blog = {
+
+    hasClickEnter:false,
+
     init:function(){
         this.formatDate();
         this.initGreetings();
         this.pvCount();
+        this.bindEnterBtn();
         this.changeToBlogPage();
     },
 
@@ -123,16 +127,27 @@ var Blog = {
     },
 
     changeToBlogPage:function () {
+        var that = this;
         if(this.isIndexPage()) {
             setTimeout(function () {
-                $('.blog-button').trigger('click');
-                // window.location.href = "/#blog";
+                if(!that.hasClickEnter){
+                    that.hasClickEnter = true;
+                    $('.blog-button').trigger('click');
+                    // window.location.href = "/#blog";
+                }
             },2500);
         }
     },
 
     isIndexPage:function () {
         return (window.location.pathname != '/' || window.location.hash)? false: true;
+    },
+
+    bindEnterBtn:function () {
+        var that = this;
+        $('.blog-button').bind('click',function () {
+            that.hasClickEnter = true;
+        })
     }
 };
 Blog.init();
