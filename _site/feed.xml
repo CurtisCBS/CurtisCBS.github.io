@@ -5,13 +5,21 @@
     <description>Curtis&#39;s Blog</description>
     <link>http://chenbingshu.com///</link>
     <atom:link href="http://chenbingshu.com///feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 12 Jul 2016 18:10:38 +0800</pubDate>
-    <lastBuildDate>Tue, 12 Jul 2016 18:10:38 +0800</lastBuildDate>
+    <pubDate>Wed, 13 Jul 2016 10:57:41 +0800</pubDate>
+    <lastBuildDate>Wed, 13 Jul 2016 10:57:41 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
         <title>推荐阅读</title>
         <description>&lt;p&gt;推荐阅读文章列表(新旧排序):&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/imweb/mobile&quot;&gt;移动开发经验汇总(冷门bug集合)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.alloyteam.com/2016/05/h5-camera-literacy/&quot;&gt;H5视频直播扫盲&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.alloyteam.com/2016/05/date-object/&quot;&gt;Date对象的那些事儿&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://mp.weixin.qq.com/s?__biz=MzA4MjA0MTc4NQ==&amp;amp;mid=504090077&amp;amp;idx=1&amp;amp;sn=a35b791e51286f7048c2155f7c888c6d#rd&quot;&gt;PC与无线齐飞，Web共Native一色——天猫首页全解密&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://coolshell.cn/articles/17381.html&quot;&gt;性能测试应该怎么做？&lt;/a&gt;&lt;/p&gt;
 

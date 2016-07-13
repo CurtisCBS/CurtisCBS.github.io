@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ddfcba04-6dc3-49ab-a48b-047c3a8c9700" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_posts/2016-07-11-推荐阅读.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/categories/index.html" afterPath="$PROJECT_DIR$/_site/categories/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/feed.xml" afterPath="$PROJECT_DIR$/_site/feed.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/index.html" afterPath="$PROJECT_DIR$/_site/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/page2/index.html" afterPath="$PROJECT_DIR$/_site/page2/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/sitemap.xml" afterPath="$PROJECT_DIR$/_site/sitemap.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/tags/index.html" afterPath="$PROJECT_DIR$/_site/tags/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2016-07-11-推荐阅读.md" afterPath="$PROJECT_DIR$/_posts/2016-07-11-推荐阅读.md" />
     </list>
     <ignored path="CurtisCBS.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,8 +27,8 @@
       <file leaf-file-name="2016-07-11-推荐阅读.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_posts/2016-07-11-推荐阅读.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+            <state relative-caret-position="135">
+              <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -83,8 +76,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="234" />
-    <option name="y" value="54" />
+    <option name="x" value="356" />
+    <option name="y" value="169" />
     <option name="width" value="1206" />
     <option name="height" value="784" />
   </component>
@@ -279,22 +272,22 @@
       <workItem from="1468216565674" duration="746000" />
       <workItem from="1468221256843" duration="828000" />
       <workItem from="1468317904088" duration="143000" />
-      <workItem from="1468318136642" duration="102000" />
+      <workItem from="1468318136642" duration="1866000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15101000" />
+    <option name="totallyTimeSpent" value="16865000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="234" y="54" width="1206" height="784" extended-state="1" />
-    <editor active="false" />
+    <frame x="356" y="169" width="1206" height="784" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23881857" sideWeight="0.49459043" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24978903" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26875" sideWeight="0.5054096" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -660,8 +653,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2016-07-11-推荐阅读.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+        <state relative-caret-position="135">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
           <folding />
         </state>
       </provider>
