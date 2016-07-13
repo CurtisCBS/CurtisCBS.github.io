@@ -45,6 +45,7 @@ var Blog = {
         this.pvCount();
         this.bindEnterBtn();
         this.changeToBlogPage();
+        this.showNotification();
     },
 
     /**
@@ -148,6 +149,40 @@ var Blog = {
         $('.blog-button').bind('click',function () {
             that.hasClickEnter = true;
         })
+    },
+
+    showNotification:function () {
+        // document.cookie="name="+username;
+        var hasNotice = this.getCookie('hasNotice');
+        if (!("Notification" in window)
+        || hasNotice) {
+            return;
+        }
+        else if (Notification.permission === "granted") {
+            var notification = new Notification("welcome!",{
+                icon:'http://chenbingshu.com/images/profile.png',
+                body:'收藏以方便下次访问'
+            });
+            this.setCookie('hasNotice',1);
+            setTimeout(function () {
+                notification.close();
+            },2000);
+        }
+    },
+
+    getCookie:function (name){
+        var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+        if(arr=document.cookie.match(reg))
+            return unescape(arr[2]);
+        else
+            return null;
+    },
+    
+    setCookie:function (name,value) {
+        var Days = 30;
+        var exp = new Date();
+        exp.setTime(exp.getTime() + Days*24*60*60*1000);
+        document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
     }
 };
 Blog.init();
