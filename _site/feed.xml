@@ -5,19 +5,27 @@
     <description>Curtis&#39;s Blog</description>
     <link>http://chenbingshu.com///</link>
     <atom:link href="http://chenbingshu.com///feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 14 Jul 2016 10:25:05 +0800</pubDate>
-    <lastBuildDate>Thu, 14 Jul 2016 10:25:05 +0800</lastBuildDate>
+    <pubDate>Thu, 14 Jul 2016 10:53:08 +0800</pubDate>
+    <lastBuildDate>Thu, 14 Jul 2016 10:53:08 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
         <title>推荐阅读</title>
         <description>&lt;p&gt;推荐阅读文章列表(新旧排序):&lt;/p&gt;
 
+&lt;p&gt;7.12&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.zhangxinxu.com/wordpress/2016/06/png-icon-change-color-by-css/&quot;&gt;PNG格式小图标的CSS任意颜色赋色技术&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/cht8687/You-Dont-Need-Lodash-Underscore?utm_campaign=CodeTengu&amp;amp;utm_medium=web&amp;amp;utm_source=CodeTengu_51&quot;&gt;You don’t (may not) need Lodash/Underscore Gitter&lt;/a&gt;&lt;/p&gt;
+
 &lt;p&gt;&lt;a href=&quot;http://www.w3cplus.com/css/dirty-tricks-dark-corners-front-end-pt1.html&quot;&gt;前端开发中的一些黑魔法Pt1&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/foru17/front-end-collect&quot;&gt;前端收集&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://www.zcfy.cc/article/don-039-t-just-code-career-advice-from-the-programming-masters-javaworld-668.html&quot;&gt;来自于编程大师的职业建议：别老想着写码&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;7.13&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/imweb/mobile&quot;&gt;移动开发经验汇总(冷门bug集合)&lt;/a&gt;&lt;/p&gt;
 
@@ -26,6 +34,8 @@
 &lt;p&gt;&lt;a href=&quot;http://www.alloyteam.com/2016/05/date-object/&quot;&gt;Date对象的那些事儿&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://mp.weixin.qq.com/s?__biz=MzA4MjA0MTc4NQ==&amp;amp;mid=504090077&amp;amp;idx=1&amp;amp;sn=a35b791e51286f7048c2155f7c888c6d#rd&quot;&gt;PC与无线齐飞，Web共Native一色——天猫首页全解密&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;7.12&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://coolshell.cn/articles/17381.html&quot;&gt;性能测试应该怎么做？&lt;/a&gt;&lt;/p&gt;
 
