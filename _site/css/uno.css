@@ -917,6 +917,9 @@ body {
 .icon-zoom-out:before {
 	content: "\f21a"; }
 
+.icon-comment:before {
+	content: "\f132"; }
+
 html, body {
 	height: 100%; }
 
