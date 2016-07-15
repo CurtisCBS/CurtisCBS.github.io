@@ -1,0 +1,6 @@
+{
+  "description": "Curtis's blog",
+  "scripts": {
+    "init": "jekyll server"
+  }
+}

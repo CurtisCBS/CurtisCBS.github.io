@@ -5,15 +5,27 @@
     <description>Curtis&#39;s Blog</description>
     <link>http://chenbingshu.com///</link>
     <atom:link href="http://chenbingshu.com///feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 14 Jul 2016 10:53:08 +0800</pubDate>
-    <lastBuildDate>Thu, 14 Jul 2016 10:53:08 +0800</lastBuildDate>
+    <pubDate>Fri, 15 Jul 2016 10:46:58 +0800</pubDate>
+    <lastBuildDate>Fri, 15 Jul 2016 10:46:58 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
         <title>推荐阅读</title>
-        <description>&lt;p&gt;推荐阅读文章列表(新旧排序):&lt;/p&gt;
+        <description>&lt;p&gt;推荐阅读文章列表(时间排序):&lt;/p&gt;
 
-&lt;p&gt;7.12&lt;/p&gt;
+&lt;p&gt;7.15&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/xitu/gold-miner/blob/master/TODO/101-ways-to-make-your-website-more-awesome.md&quot;&gt;101 Ways to Make Your Website More Awesome&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/21556998?refer=sayfe&quot;&gt;WebVR如此近 - three.js的WebVR示例程序解析&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.w3ctech.com/topic/1836&quot;&gt;如何在前端开发中增加编码效率，这里有十款 Chrome 扩展可以帮你&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.w3ctech.com/topic/979&quot;&gt;MobileWeb 适配总结&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.w3ctech.com/topic/287&quot;&gt;在手机浏览器启动你的app&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;7.14&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://www.zhangxinxu.com/wordpress/2016/06/png-icon-change-color-by-css/&quot;&gt;PNG格式小图标的CSS任意颜色赋色技术&lt;/a&gt;&lt;/p&gt;
 
@@ -49,6 +61,8 @@
         <guid isPermaLink="true">http://chenbingshu.com///2016/%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB/</guid>
         
         <category>推荐</category>
+        
+        <category>文章</category>
         
         
         <category>前端</category>
