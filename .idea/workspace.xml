@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ddfcba04-6dc3-49ab-a48b-047c3a8c9700" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2016-07-11-推荐阅读.md" afterPath="$PROJECT_DIR$/_posts/2016-07-11-推荐阅读.md" />
-    </list>
+    <list default="true" id="ddfcba04-6dc3-49ab-a48b-047c3a8c9700" name="Default" comment="" />
     <ignored path="CurtisCBS.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -28,8 +25,8 @@
       <file leaf-file-name="2016-07-11-推荐阅读.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_posts/2016-07-11-推荐阅读.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+            <state relative-caret-position="150">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -79,7 +76,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="419" />
+    <option name="x" value="234" />
     <option name="y" value="23" />
     <option name="width" value="1206" />
     <option name="height" value="784" />
@@ -109,7 +106,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -144,6 +140,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -267,15 +264,17 @@
       <workItem from="1468461760816" duration="34000" />
       <workItem from="1468462665538" duration="1759000" />
       <workItem from="1468549412754" duration="2427000" />
-      <workItem from="1468659813472" duration="146000" />
+      <workItem from="1468659813472" duration="204000" />
+      <workItem from="1468732039714" duration="187000" />
+      <workItem from="1468765240571" duration="11000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22091000" />
+    <option name="totallyTimeSpent" value="22347000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="419" y="23" width="1206" height="784" extended-state="0" />
+    <frame x="234" y="23" width="1206" height="784" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23881857" sideWeight="0.49459043" order="0" side_tool="false" content_ui="combo" />
@@ -641,8 +640,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2016-07-11-推荐阅读.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+        <state relative-caret-position="150">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
