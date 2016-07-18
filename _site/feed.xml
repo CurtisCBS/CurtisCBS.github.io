@@ -5,13 +5,19 @@
     <description>Curtis&#39;s Blog</description>
     <link>http://chenbingshu.com///</link>
     <atom:link href="http://chenbingshu.com///feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 17 Jul 2016 22:21:17 +0800</pubDate>
-    <lastBuildDate>Sun, 17 Jul 2016 22:21:17 +0800</lastBuildDate>
+    <pubDate>Mon, 18 Jul 2016 10:29:02 +0800</pubDate>
+    <lastBuildDate>Mon, 18 Jul 2016 10:29:02 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
         <title>推荐阅读</title>
         <description>&lt;p&gt;推荐阅读文章列表(时间排序):&lt;/p&gt;
+
+&lt;p&gt;7.18&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/wonyun/p/5524617.html&quot;&gt;http协商缓存VS强缓存&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.jianshu.com/p/35e20bb361d0#&quot;&gt;大公司里怎样开发和部署前端代码？(附实践方案)&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;7.17&lt;/p&gt;
 
