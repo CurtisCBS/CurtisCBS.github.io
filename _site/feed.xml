@@ -5,9 +5,153 @@
     <description>Curtis&#39;s Blog</description>
     <link>http://chenbingshu.com///</link>
     <atom:link href="http://chenbingshu.com///feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 19 Jul 2016 11:20:09 +0800</pubDate>
-    <lastBuildDate>Tue, 19 Jul 2016 11:20:09 +0800</lastBuildDate>
+    <pubDate>Tue, 19 Jul 2016 18:24:30 +0800</pubDate>
+    <lastBuildDate>Tue, 19 Jul 2016 18:24:30 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>threejs实现webVR笔记</title>
+        <description>&lt;h2 id=&quot;threescene&quot;&gt;three.scene&lt;/h2&gt;
+
+&lt;p&gt;使用threejs实现各种动画效果,主要是通过三个部分:场景,镜头,渲染器&lt;/p&gt;
+
+&lt;p&gt;官方文档给出的例子&lt;/p&gt;
+
+&lt;p&gt;创建场景:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement );
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;以上代码声明了threejs实现的三个部分,并添加到html的body中&lt;/p&gt;
+
+&lt;p&gt;创建物体:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+var cube = new THREE.Mesh( geometry, material );
+scene.add( cube );
+
+camera.position.z = 5;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;BoxGeometry是three创建一个立方体的方法&lt;/p&gt;
+
+&lt;p&gt;MeshBasicMaterial是渲染材质,如颜色,材质的方法&lt;/p&gt;
+
+&lt;p&gt;Mesh是将MeshBasicMaterial的材质渲染到BoxGeometry生成的立方体上,并被插入到scene中&lt;/p&gt;
+
+&lt;p&gt;渲染:&lt;/p&gt;
+
+&lt;p&gt;复制以上代码并不看到实际效果,因为并没有真正渲染&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function render() {
+    requestAnimationFrame( render );
+    renderer.render( scene, camera );
+}
+render();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这里的渲染方法,是个循环渲染。1s执行六十次渲染(60fps)&lt;/p&gt;
+
+&lt;p&gt;旋转:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;setInterval(function(){
+	cube.rotation.x += 0.1;
+	cube.rotation.y += 0.1;
+},100);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;修改cube对象的rotation的值,会让渲染的立方体转动&lt;/p&gt;
+
+&lt;p&gt;如同上面的修改camera.position.z的值一样,修改camera.position改变的是视图角度的位置&lt;/p&gt;
+
+&lt;h2 id=&quot;matrix-transformations&quot;&gt;矩阵变换(Matrix transformations)&lt;/h2&gt;
+&lt;p&gt;threejs使用矩阵来实现3D动画的变化.每个Object3D对象都有一个matrix,存储包含位置,旋转,缩放等数据&lt;/p&gt;
+
+&lt;p&gt;实现3D变化的方法有两种:&lt;/p&gt;
+
+&lt;p&gt;1.使用Object3D对象(以下简称O3D)的方法,如:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var pos = {
+    x:1,
+    y:1,
+    z:1
+}
+cube.position.copy(pos);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这样就实现了对象的位移&lt;/p&gt;
+
+&lt;p&gt;O3D的matrixAutoUpdate默认为true,所以使用方法改变了matrix的值,就会立即渲染出效果;&lt;/p&gt;
+
+&lt;p&gt;如果希望手动更新视图,只要把自动更新设为false,在需要重新渲染的时候调用O3D的updateMatrix方法就行了&lt;/p&gt;
+
+&lt;p&gt;2.直接修改O3D的matrix&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var pos = {
+    x:1,
+    y:1,
+    z:1
+}
+cube.matrixAutoUpdate = false;
+cube.matrix.setPosition(start_position);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;使用这个方法进行变换时matrixAutoUpdate必须为false&lt;/p&gt;
+
+&lt;p&gt;视角:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://threejs.org/docs/index.html#Reference/Math/Euler&quot;&gt;欧拉角(Euler angles)&lt;/a&gt; 和 &lt;a href=&quot;http://threejs.org/docs/index.html#Reference/Math/Quaternion&quot;&gt;四元数(Quaternions)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;threejs使用了如上两种听起来很高端听都没听过的方法来表示3d旋转&lt;/p&gt;
+
+&lt;h2 id=&quot;texture&quot;&gt;材质(texture)&lt;/h2&gt;
+
+&lt;p&gt;上面的例子创建了一个立方体,现在来实现材质渲染&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var loader = new THREE.TextureLoader();
+loader.load(&#39;texture.png&#39;, textureLoad);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;首先创建一个加载器,在加载完图片后进行材质渲染&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function textureLoad(texture){
+    texture.wrapS = THREE.RepeatWrapping;
+	texture.wrapT = THREE.RepeatWrapping;
+	texture.repeat.set( 1,1);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;如果在本地调试或者跨域请求资源导致js error(Tainted canvases may not be loaded),可以参考如下方法解决&lt;a href=&quot;https://github.com/mrdoob/three.js/wiki/How-to-run-things-locally&quot;&gt;传送门&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 19 Jul 2016 08:00:00 +0800</pubDate>
+        <link>http://chenbingshu.com///2016/threejs%E5%AE%9E%E7%8E%B0webVR%E7%AC%94%E8%AE%B0/</link>
+        <guid isPermaLink="true">http://chenbingshu.com///2016/threejs%E5%AE%9E%E7%8E%B0webVR%E7%AC%94%E8%AE%B0/</guid>
+        
+        <category>webVR</category>
+        
+        <category>js</category>
+        
+        <category>threejs</category>
+        
+        
+        <category>前端</category>
+        
+      </item>
     
       <item>
         <title>推荐阅读</title>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="baidu-site-verification" content="z5y1bbeVt3" />
 
-  <title>Categories</title>
+  <title>threejs实现webVR笔记</title>
   <meta name="description" content="Curtis's Blog">
   <meta name="author" content="Curtis">
   <meta name="HandheldFriendly" content="True">
@@ -30,7 +30,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://chenbingshu.com///categories/">
+  <link rel="canonical" href="http://chenbingshu.com///2016/threejs%E5%AE%9E%E7%8E%B0webVR%E7%AC%94%E8%AE%B0/">
   <link rel="alternate" type="application/rss+xml" title="Curtis" href="/feed.xml">
   <script>
   var _hmt = _hmt || [];
@@ -149,87 +149,147 @@
 
     <div class="content-wrapper">
       <div class="content-wrapper__inner">
-        <h2>Categories:</h2>
-<div class="categories"> 
- 
-  <a href="#前端">前端</a>
+        <article class="post-container post-container--single">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="19 Jul 2016" class="post-meta__date date">19 Jul 2016</time> &#8226; <span class="post-meta__tags">keywords: [ <a href="/tags/#webVR">webVR</a> , <a href="/tags/#js">js</a> , <a href="/tags/#threejs">threejs</a> ,  ]</span>
+    </div>
+    <h1 class="post-title">threejs实现webVR笔记</h1>
+  </header>
 
+  <section class="post">
+    <h2 id="threescene">three.scene</h2>
+
+<p>使用threejs实现各种动画效果,主要是通过三个部分:场景,镜头,渲染器</p>
+
+<p>官方文档给出的例子</p>
+
+<p>创建场景:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement );
+</code></pre>
 </div>
 
-<!-- iterate through all categories on the site --> 
- 
-  <!-- for each tag, create an anchor by using the tag name as an id --> 
-  <div id="前端">  
-    <h3> 前端 </h3>  <!-- for create a heading --> 
+<p>以上代码声明了threejs实现的三个部分,并添加到html的body中</p>
 
-    <ul> <!-- create the list of posts -->
-      <!-- iterate through all the posts on the site --> 
-       
-        <!-- list only those which contain the current tag --> 
-         
-            <li>
-              <a href="/2016/threejs%E5%AE%9E%E7%8E%B0webVR%E7%AC%94%E8%AE%B0/">threejs实现webVR笔记</a>
-            </li>
-        
-       
-        <!-- list only those which contain the current tag --> 
-         
-            <li>
-              <a href="/2016/%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB/">推荐阅读</a>
-            </li>
-        
-       
-        <!-- list only those which contain the current tag --> 
-         
-            <li>
-              <a href="/2016/%E5%A6%82%E4%BD%95%E5%9C%A8%E9%A1%B5%E9%9D%A2%E5%8F%91%E9%80%81%E9%80%9A%E7%9F%A5%E6%B6%88%E6%81%AF/">如何在页面发送通知消息</a>
-            </li>
-        
-       
-        <!-- list only those which contain the current tag --> 
-         
-            <li>
-              <a href="/2016/js%E8%8A%82%E6%B5%81throttle%E5%87%BD%E6%95%B0/">js节流throttle函数</a>
-            </li>
-        
-       
-        <!-- list only those which contain the current tag --> 
-         
-            <li>
-              <a href="/2016/webscroll%E7%9A%84%E6%BB%9A%E5%8A%A8%E6%83%AF%E6%80%A7/">web scroll的滚动惯性</a>
-            </li>
-        
-       
-        <!-- list only those which contain the current tag --> 
-         
-            <li>
-              <a href="/2016/backbone%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/">backbone使用心得</a>
-            </li>
-        
-       
-        <!-- list only those which contain the current tag --> 
-         
-            <li>
-              <a href="/2016/%E7%A7%BB%E5%8A%A8web%E5%BC%80%E5%8F%91%E8%80%85%E5%B8%B8%E7%94%A8%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95/">移动web开发者常用调试方法</a>
-            </li>
-        
-       
-        <!-- list only those which contain the current tag --> 
-         
-            <li>
-              <a href="/2016/chrome%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/">chrome插件开发</a>
-            </li>
-        
-       
-        <!-- list only those which contain the current tag --> 
-         
-            <li>
-              <a href="/2016/performance_api%E5%9C%A8%E7%BD%91%E9%A1%B5%E6%80%A7%E8%83%BD%E7%9B%91%E6%B5%8B%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E8%A1%A8%E7%8E%B0%E5%B7%AE%E5%BC%82/">Performance Api在网页性能监测的使用和表现差异</a>
-            </li>
-        
-      
-    </ul>
-  </div>
+<p>创建物体:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+var cube = new THREE.Mesh( geometry, material );
+scene.add( cube );
+
+camera.position.z = 5;
+</code></pre>
+</div>
+
+<p>BoxGeometry是three创建一个立方体的方法</p>
+
+<p>MeshBasicMaterial是渲染材质,如颜色,材质的方法</p>
+
+<p>Mesh是将MeshBasicMaterial的材质渲染到BoxGeometry生成的立方体上,并被插入到scene中</p>
+
+<p>渲染:</p>
+
+<p>复制以上代码并不看到实际效果,因为并没有真正渲染</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>function render() {
+    requestAnimationFrame( render );
+    renderer.render( scene, camera );
+}
+render();
+</code></pre>
+</div>
+
+<p>这里的渲染方法,是个循环渲染。1s执行六十次渲染(60fps)</p>
+
+<p>旋转:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>setInterval(function(){
+	cube.rotation.x += 0.1;
+	cube.rotation.y += 0.1;
+},100);
+</code></pre>
+</div>
+
+<p>修改cube对象的rotation的值,会让渲染的立方体转动</p>
+
+<p>如同上面的修改camera.position.z的值一样,修改camera.position改变的是视图角度的位置</p>
+
+<h2 id="matrix-transformations">矩阵变换(Matrix transformations)</h2>
+<p>threejs使用矩阵来实现3D动画的变化.每个Object3D对象都有一个matrix,存储包含位置,旋转,缩放等数据</p>
+
+<p>实现3D变化的方法有两种:</p>
+
+<p>1.使用Object3D对象(以下简称O3D)的方法,如:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var pos = {
+    x:1,
+    y:1,
+    z:1
+}
+cube.position.copy(pos);
+</code></pre>
+</div>
+
+<p>这样就实现了对象的位移</p>
+
+<p>O3D的matrixAutoUpdate默认为true,所以使用方法改变了matrix的值,就会立即渲染出效果;</p>
+
+<p>如果希望手动更新视图,只要把自动更新设为false,在需要重新渲染的时候调用O3D的updateMatrix方法就行了</p>
+
+<p>2.直接修改O3D的matrix</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var pos = {
+    x:1,
+    y:1,
+    z:1
+}
+cube.matrixAutoUpdate = false;
+cube.matrix.setPosition(start_position);
+</code></pre>
+</div>
+
+<p>使用这个方法进行变换时matrixAutoUpdate必须为false</p>
+
+<p>视角:</p>
+
+<p><a href="http://threejs.org/docs/index.html#Reference/Math/Euler">欧拉角(Euler angles)</a> 和 <a href="http://threejs.org/docs/index.html#Reference/Math/Quaternion">四元数(Quaternions)</a></p>
+
+<p>threejs使用了如上两种听起来很高端听都没听过的方法来表示3d旋转</p>
+
+<h2 id="texture">材质(texture)</h2>
+
+<p>上面的例子创建了一个立方体,现在来实现材质渲染</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var loader = new THREE.TextureLoader();
+loader.load('texture.png', textureLoad);
+</code></pre>
+</div>
+
+<p>首先创建一个加载器,在加载完图片后进行材质渲染</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>function textureLoad(texture){
+    texture.wrapS = THREE.RepeatWrapping;
+	texture.wrapT = THREE.RepeatWrapping;
+	texture.repeat.set( 1,1);
+}
+</code></pre>
+</div>
+
+<p>如果在本地调试或者跨域请求资源导致js error(Tainted canvases may not be loaded),可以参考如下方法解决<a href="https://github.com/mrdoob/three.js/wiki/How-to-run-things-locally">传送门</a></p>
+
+
+  </section>
+  
+</article>
+
+
 
       </div>
 
