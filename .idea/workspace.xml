@@ -25,8 +25,8 @@
       <file leaf-file-name="2016-07-11-推荐阅读.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_posts/2016-07-11-推荐阅读.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+            <state relative-caret-position="345">
+              <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -76,8 +76,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="386" />
-    <option name="y" value="62" />
+    <option name="x" value="234" />
+    <option name="y" value="51" />
     <option name="width" value="1206" />
     <option name="height" value="784" />
   </component>
@@ -107,6 +107,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -141,7 +142,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -268,15 +268,16 @@
       <workItem from="1468732039714" duration="187000" />
       <workItem from="1468765240571" duration="546000" />
       <workItem from="1468807644657" duration="589000" />
-      <workItem from="1468810046849" duration="466000" />
+      <workItem from="1468810046849" duration="586000" />
+      <workItem from="1468893869332" duration="2979000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23937000" />
+    <option name="totallyTimeSpent" value="27036000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="386" y="62" width="1206" height="784" extended-state="1" />
+    <frame x="234" y="51" width="1206" height="784" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23881857" sideWeight="0.49459043" order="0" side_tool="false" content_ui="combo" />
@@ -642,8 +643,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2016-07-11-推荐阅读.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+        <state relative-caret-position="345">
+          <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
           <folding />
         </state>
       </provider>
