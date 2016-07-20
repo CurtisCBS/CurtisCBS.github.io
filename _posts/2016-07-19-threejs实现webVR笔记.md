@@ -124,4 +124,13 @@ threejs使用了如上两种听起来很高端听都没听过的方法来表示3
 
 如果在本地调试或者跨域请求资源导致js error(Tainted canvases may not be loaded),可以参考如下方法解决[传送门](https://github.com/mrdoob/three.js/wiki/How-to-run-things-locally)
 
+**windows**
 
+**chrome --allow-file-access-from-files**
+
+**mac**
+
+**open /Applications/Google\ Chrome.app --args --allow-file-access-from-files**
+
+VRControl
+---
