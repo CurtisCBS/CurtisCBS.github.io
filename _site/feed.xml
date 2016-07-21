@@ -5,9 +5,125 @@
     <description>Curtis&#39;s Blog</description>
     <link>http://chenbingshu.com///</link>
     <atom:link href="http://chenbingshu.com///feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 21 Jul 2016 11:25:20 +0800</pubDate>
-    <lastBuildDate>Thu, 21 Jul 2016 11:25:20 +0800</lastBuildDate>
+    <pubDate>Thu, 21 Jul 2016 21:58:17 +0800</pubDate>
+    <lastBuildDate>Thu, 21 Jul 2016 21:58:17 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>如何在服务端运行node服务器来自动更新github代码</title>
+        <description>&lt;p&gt;最近自己搭建了个VPS,主要用于存放一些项目。&lt;/p&gt;
+
+&lt;p&gt;因为对服务端不太了解,所以学习比较吃力。&lt;/p&gt;
+
+&lt;p&gt;而且每次push代码到github还得手动登陆服务器,拉取代码,然后重启服务。&lt;/p&gt;
+
+&lt;p&gt;所以就在服务器端搭了个node服务器,弄个请求专门来监听github的代码提交纪录,并作服务器端的代码更新&lt;/p&gt;
+
+&lt;h2 id=&quot;work-flow&quot;&gt;work flow&lt;/h2&gt;
+&lt;p&gt;git本地代码提交(push) -&amp;gt; github webhook通知服务器 -&amp;gt; 服务器接收请求并执行代码更新(pull)&lt;/p&gt;
+
+&lt;h2 id=&quot;github-webhook&quot;&gt;github webhook&lt;/h2&gt;
+
+&lt;p&gt;github webhook是在你的仓库(repository)发生变动的时候,通知你的服务器,一个仓库&lt;/p&gt;
+
+&lt;p&gt;可以设置多个webhook。在仓库的setting中可以设置(如下图)。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/post/20160721/github-setting.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这里是我某个项目webhook的配置,需要注意的是,如果你起的服务不是默认端口,需要加上端口参数,否则会404报错,&lt;/p&gt;
+
+&lt;p&gt;而且用于监听的这个请求接口(如图的listenGithubPush请求)需要是post,否则同样会报错。&lt;/p&gt;
+
+&lt;p&gt;这边选项只选择了push事件才会通知服务端,根据需要也可以选择其他选项&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/post/20160721/webhook-config.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;服务器端监听通知&lt;/h2&gt;
+
+&lt;p&gt;首先要在服务端上搭建一个node服务器,我是用express框架起了了一个服务器。&lt;/p&gt;
+
+&lt;p&gt;创建坚挺服务器 githubListener.js&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var express = require(&#39;express&#39;);
+var app = express();
+var exec = require(&#39;exec&#39;);
+
+app.get(&#39;/&#39;, function (req, res) {
+  res.send(&#39;Hello World!&#39;);
+});
+
+app.post(&#39;/listenGithubPush&#39;,function(req,res){
+  exec(&#39;git checkout master &amp;amp;&amp;amp; git pull&#39;,function(err, out, code) {
+  if (err !== null) {
+      console.log(&#39;exec error: &#39; + err);
+    }
+    process.stderr.write(err);
+    process.stdout.write(out);
+  // process.exit(code);
+  });
+  res.send(&#39;the server has redeployed!!&#39;);
+});
+
+var server = app.listen(3000, function () {
+  var host = server.address().address;
+  var port = server.address().port;
+  console.log(&#39;Example app listening at http://%s:%s&#39;, host, port);
+});
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;exec用于通过让子进程执行某个命令(这里执行的是切换分支和拉取代码)&lt;/p&gt;
+
+&lt;p&gt;这样,接下来只要在服务端运行该node服务就行了&lt;/p&gt;
+
+&lt;h2 id=&quot;forever&quot;&gt;forever&lt;/h2&gt;
+
+&lt;p&gt;如何让服务器一只运行node服务器?&lt;/p&gt;
+
+&lt;p&gt;网上找到了两种方法:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1.在后台创建进程,然后执行node
+
+2.forever
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://blog.nodejitsu.com/keep-a-nodejs-server-up-with-forever/&quot;&gt;Keep a node.js server up with Forever&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;只要在服务端&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install forever -g
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;就完成了forever的安装&lt;/p&gt;
+
+&lt;p&gt;要启动node服务器只需要&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;forever start githubListener.js
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这样,就可以在服务端让node服务器一值运行了&lt;/p&gt;
+
+&lt;p&gt;最后,只要刚才设置了webhook的仓库push一下代码,就可以完成整个流程了&lt;/p&gt;
+</description>
+        <pubDate>Thu, 21 Jul 2016 21:00:00 +0800</pubDate>
+        <link>http://chenbingshu.com///2016/%E5%A6%82%E4%BD%95%E5%9C%A8%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%BF%90%E8%A1%8Cnode%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9D%A5%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0github%E4%BB%A3%E7%A0%81/</link>
+        <guid isPermaLink="true">http://chenbingshu.com///2016/%E5%A6%82%E4%BD%95%E5%9C%A8%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%BF%90%E8%A1%8Cnode%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9D%A5%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0github%E4%BB%A3%E7%A0%81/</guid>
+        
+        <category>node</category>
+        
+        <category>github</category>
+        
+        <category>webhook</category>
+        
+        <category>forever</category>
+        
+        
+        <category>前端</category>
+        
+      </item>
     
       <item>
         <title>threejs实现webVR笔记</title>

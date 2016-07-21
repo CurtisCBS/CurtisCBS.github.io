@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="baidu-site-verification" content="z5y1bbeVt3" />
 
-  <title>Curtis</title>
+  <title>如何在服务端运行node服务器来自动更新github代码</title>
   <meta name="description" content="Curtis's Blog">
   <meta name="author" content="Curtis">
   <meta name="HandheldFriendly" content="True">
@@ -30,7 +30,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://chenbingshu.com///">
+  <link rel="canonical" href="http://chenbingshu.com///2016/%E5%A6%82%E4%BD%95%E5%9C%A8%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%BF%90%E8%A1%8Cnode%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9D%A5%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0github%E4%BB%A3%E7%A0%81/">
   <link rel="alternate" type="application/rss+xml" title="Curtis" href="/feed.xml">
   <script>
   var _hmt = _hmt || [];
@@ -149,72 +149,118 @@
 
     <div class="content-wrapper">
       <div class="content-wrapper__inner">
-        <div class="main-post-list">
+        <article class="post-container post-container--single">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="21 Jul 2016" class="post-meta__date date">21 Jul 2016</time> &#8226; <span class="post-meta__tags">keywords: [ <a href="/tags/#node">node</a> , <a href="/tags/#github">github</a> , <a href="/tags/#webhook">webhook</a> , <a href="/tags/#forever">forever</a> ,  ]</span>
+    </div>
+    <h1 class="post-title">如何在服务端运行node服务器来自动更新github代码</h1>
+  </header>
 
-  <ol class="post-list">
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2016/%E5%A6%82%E4%BD%95%E5%9C%A8%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%BF%90%E8%A1%8Cnode%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9D%A5%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0github%E4%BB%A3%E7%A0%81/" title="如何在服务端运行node服务器来自动更新github代码">如何在服务端运行node服务器来自动更新github代码</a></h2>
-        <p class="excerpt">最近自己搭建了个VPS,主要用于存放一些项目。
+  <section class="post">
+    <p>最近自己搭建了个VPS,主要用于存放一些项目。</p>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="21 Jul 2016" class="post-list__meta--date date">21 Jul 2016</time> &#8226; <span class="post-meta__tags">keywords: [ <a href="/tags/#node">node</a>, <a href="/tags/#github">github</a>, <a href="/tags/#webhook">webhook</a>, <a href="/tags/#forever">forever</a>, ]</span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2016/threejs%E5%AE%9E%E7%8E%B0webVR%E7%AC%94%E8%AE%B0/" title="threejs实现webVR笔记">threejs实现webVR笔记</a></h2>
-        <p class="excerpt">在2016年最火的15款HTML5游戏引擎排行榜中,threejs已经登顶了 <a href="http://www.diycode.cc/topics/16">排行榜</a>
+<p>因为对服务端不太了解,所以学习比较吃力。</p>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="19 Jul 2016" class="post-list__meta--date date">19 Jul 2016</time> &#8226; <span class="post-meta__tags">keywords: [ <a href="/tags/#webVR">webVR</a>, <a href="/tags/#js">js</a>, <a href="/tags/#threejs">threejs</a>, ]</span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2016/%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB/" title="推荐阅读">推荐阅读</a></h2>
-        <p class="excerpt">推荐阅读文章列表(时间排序):
+<p>而且每次push代码到github还得手动登陆服务器,拉取代码,然后重启服务。</p>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="11 Jul 2016" class="post-list__meta--date date">11 Jul 2016</time> &#8226; <span class="post-meta__tags">keywords: [ <a href="/tags/#推荐">推荐</a>, <a href="/tags/#文章">文章</a>, ]</span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2016/%E5%A6%82%E4%BD%95%E5%9C%A8%E9%A1%B5%E9%9D%A2%E5%8F%91%E9%80%81%E9%80%9A%E7%9F%A5%E6%B6%88%E6%81%AF/" title="如何在页面发送通知消息">如何在页面发送通知消息</a></h2>
-        <p class="excerpt">如果你的网站需要在用户登陆或者在某些特定时刻向用户发送通知。
+<p>所以就在服务器端搭了个node服务器,弄个请求专门来监听github的代码提交纪录,并作服务器端的代码更新</p>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="1 Jul 2016" class="post-list__meta--date date">1 Jul 2016</time> &#8226; <span class="post-meta__tags">keywords: [ <a href="/tags/#通知">通知</a>, ]</span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2016/js%E8%8A%82%E6%B5%81throttle%E5%87%BD%E6%95%B0/" title="js节流throttle函数">js节流throttle函数</a></h2>
-        <p class="excerpt"><h2 id="section">节流函数</h2>
+<h2 id="work-flow">work flow</h2>
+<p>git本地代码提交(push) -&gt; github webhook通知服务器 -&gt; 服务器接收请求并执行代码更新(pull)</p>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="30 Jun 2016" class="post-list__meta--date date">30 Jun 2016</time> &#8226; <span class="post-meta__tags">keywords: [ <a href="/tags/#throttle">throttle</a>, <a href="/tags/#节流">节流</a>, ]</span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-  </ol>
+<h2 id="github-webhook">github webhook</h2>
 
-  <hr class="post-list__divider ">
+<p>github webhook是在你的仓库(repository)发生变动的时候,通知你的服务器,一个仓库</p>
 
-  
-      <nav class="pagination" role="navigation">
-  
+<p>可以设置多个webhook。在仓库的setting中可以设置(如下图)。</p>
 
-  <span class="pagination__page-number">Page 1 of 2</span>
+<p><img src="/images/post/20160721/github-setting.png" alt="image" /></p>
 
-  
-    <a rel="next" class="posts older btn small" href="/page2/">Older Posts →</a>
-  
-</nav>
-  
+<p>这里是我某个项目webhook的配置,需要注意的是,如果你起的服务不是默认端口,需要加上端口参数,否则会404报错,</p>
 
+<p>而且用于监听的这个请求接口(如图的listenGithubPush请求)需要是post,否则同样会报错。</p>
+
+<p>这边选项只选择了push事件才会通知服务端,根据需要也可以选择其他选项</p>
+
+<p><img src="/images/post/20160721/webhook-config.png" alt="image" /></p>
+
+<h2 id="section">服务器端监听通知</h2>
+
+<p>首先要在服务端上搭建一个node服务器,我是用express框架起了了一个服务器。</p>
+
+<p>创建坚挺服务器 githubListener.js</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var express = require('express');
+var app = express();
+var exec = require('exec');
+
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+app.post('/listenGithubPush',function(req,res){
+  exec('git checkout master &amp;&amp; git pull',function(err, out, code) {
+  if (err !== null) {
+      console.log('exec error: ' + err);
+    }
+    process.stderr.write(err);
+    process.stdout.write(out);
+  // process.exit(code);
+  });
+  res.send('the server has redeployed!!');
+});
+
+var server = app.listen(3000, function () {
+  var host = server.address().address;
+  var port = server.address().port;
+  console.log('Example app listening at http://%s:%s', host, port);
+});
+</code></pre>
 </div>
+
+<p>exec用于通过让子进程执行某个命令(这里执行的是切换分支和拉取代码)</p>
+
+<p>这样,接下来只要在服务端运行该node服务就行了</p>
+
+<h2 id="forever">forever</h2>
+
+<p>如何让服务器一只运行node服务器?</p>
+
+<p>网上找到了两种方法:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>1.在后台创建进程,然后执行node
+
+2.forever
+</code></pre>
+</div>
+
+<p><a href="https://blog.nodejitsu.com/keep-a-nodejs-server-up-with-forever/">Keep a node.js server up with Forever</a></p>
+
+<p>只要在服务端</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>npm install forever -g
+</code></pre>
+</div>
+
+<p>就完成了forever的安装</p>
+
+<p>要启动node服务器只需要</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>forever start githubListener.js
+</code></pre>
+</div>
+
+<p>这样,就可以在服务端让node服务器一值运行了</p>
+
+<p>最后,只要刚才设置了webhook的仓库push一下代码,就可以完成整个流程了</p>
+
+  </section>
+  
+</article>
+
+
+
       </div>
 
       <footer class="footer">
