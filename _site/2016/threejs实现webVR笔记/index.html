@@ -162,9 +162,11 @@
 
 <p>看看threejs官网的各种炫酷demo知道为什么这么火了 <a href="http://threejs.org/">官网</a></p>
 
+<p>最近几天在看threejs,看着别人的教程,顺便依赖VRControl写了个<a href="http://xurtis.com/webVR/index.html">demo</a></p>
+
 <h2 id="threescene">three.scene</h2>
 
-<p>使用threejs实现各种动画效果,主要是通过三个部分:场景,镜头,渲染器</p>
+<p>使用threejs实现各种动画效果,主要是通过三个部分:场景,镜头,渲染器(难道这就是叫three的原因???)</p>
 
 <p>官方文档给出的例子</p>
 
@@ -297,6 +299,22 @@ loader.load('texture.png', textureLoad);
 <p><strong>open /Applications/Google\ Chrome.app –args –allow-file-access-from-files</strong></p>
 
 <h2 id="vrcontrol">VRControl</h2>
+
+<p>VRControls是threejs研发团队写的实现vr的依赖</p>
+
+<p><a href="https://github.com/cvan/three-vrcontrols">github项目地址</a></p>
+
+<p>其中主要方法:gotVRDisplays</p>
+
+<p>获取vr设备(返回的设备可能有多个,该方法只取获取到的第一个),</p>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getVRDisplays">navigator接口文档</a></p>
+
+<p>获取成功回调返回了一个<a href="https://developer.mozilla.org/en-US/docs/Web/API/VRDisplay">vrdisplay对象</a></p>
+
+<p>通过实时获取该对象的<a href="https://developer.mozilla.org/en-US/docs/Web/API/VRPose">pose属性</a>,如当前时间传感器传回的位置,方向等</p>
+
+<p>来进行requestAnimationFrame实时渲染并关联到camera。</p>
 
   </section>
   

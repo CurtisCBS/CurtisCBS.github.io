@@ -10,10 +10,12 @@ tags: [webVR,js,threejs]
 
 看看threejs官网的各种炫酷demo知道为什么这么火了 [官网](http://threejs.org/)
 
+最近几天在看threejs,看着别人的教程,顺便依赖VRControl写了个[demo](http://xurtis.com/webVR/index.html)
+
 three.scene
 ---
 
-使用threejs实现各种动画效果,主要是通过三个部分:场景,镜头,渲染器
+使用threejs实现各种动画效果,主要是通过三个部分:场景,镜头,渲染器(难道这就是叫three的原因???)
 
 官方文档给出的例子
 
@@ -134,3 +136,19 @@ threejs使用了如上两种听起来很高端听都没听过的方法来表示3
 
 VRControl
 ---
+
+VRControls是threejs研发团队写的实现vr的依赖
+
+[github项目地址](https://github.com/cvan/three-vrcontrols)
+
+其中主要方法:gotVRDisplays
+
+获取vr设备(返回的设备可能有多个,该方法只取获取到的第一个),
+
+[navigator接口文档](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getVRDisplays)
+
+获取成功回调返回了一个[vrdisplay对象](https://developer.mozilla.org/en-US/docs/Web/API/VRDisplay)
+
+通过实时获取该对象的[pose属性](https://developer.mozilla.org/en-US/docs/Web/API/VRPose),如当前时间传感器传回的位置,方向等
+
+来进行requestAnimationFrame实时渲染并关联到camera。
