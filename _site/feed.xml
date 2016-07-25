@@ -5,8 +5,8 @@
     <description>Curtis&#39;s Blog</description>
     <link>http://chenbingshu.com///</link>
     <atom:link href="http://chenbingshu.com///feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 23 Jul 2016 14:25:15 +0800</pubDate>
-    <lastBuildDate>Sat, 23 Jul 2016 14:25:15 +0800</lastBuildDate>
+    <pubDate>Mon, 25 Jul 2016 18:45:13 +0800</pubDate>
+    <lastBuildDate>Mon, 25 Jul 2016 18:45:13 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -302,7 +302,15 @@ loader.load(&#39;texture.png&#39;, textureLoad);
     
       <item>
         <title>推荐阅读</title>
-        <description>&lt;p&gt;推荐阅读文章列表(时间排序):&lt;/p&gt;
+        <description>&lt;p&gt;推荐阅读文章列表(时间排序) :&lt;/p&gt;
+
+&lt;p&gt;7.25&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://mp.weixin.qq.com/s?__biz=MzI0ODA2ODU2NQ==&amp;amp;mid=2651129757&amp;amp;idx=1&amp;amp;sn=172a6a7dd481f83108bea46fc0283707#rd&quot;&gt;Web端即时通讯技术盘点：短轮询、Comet、Websocket、SSE&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/vajoy/p/5341664.html&quot;&gt;浅谈浏览器http的缓存机制&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=MzIxMzExMjYwOQ==&amp;amp;mid=2651890600&amp;amp;idx=1&amp;amp;sn=19b9ae0fc7d547a19914b90f1f04d479&amp;amp;key=8dcebf9e179c9f3a76c0e45d26aa4851e45437ef16d5cbbb8bdcc3598218e94dc0d4760809705abe987151c39d45f4c3&amp;amp;ascene=0&amp;amp;uin=MzAwODQwMzU1&amp;amp;devicetype=iMac+MacBookAir7%2C2+OSX+OSX+10.11.3+build(15D21)&amp;amp;version=11020201&amp;amp;pass_ticket=WVkWe6W2%2BC1v9xv%2FfxaVFLOLcTna2QKwRkTY7orOnfBEIwQ%2FyvU9kyfnmy5PcvBe&quot;&gt;我们是如何做好前端工程化和静态资源管理&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;7.22&lt;/p&gt;
 
