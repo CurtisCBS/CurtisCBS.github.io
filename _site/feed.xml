@@ -5,9 +5,177 @@
     <description>Curtis&#39;s Blog</description>
     <link>http://chenbingshu.com///</link>
     <atom:link href="http://chenbingshu.com///feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 28 Jul 2016 10:18:39 +0800</pubDate>
-    <lastBuildDate>Thu, 28 Jul 2016 10:18:39 +0800</lastBuildDate>
+    <pubDate>Fri, 29 Jul 2016 16:43:12 +0800</pubDate>
+    <lastBuildDate>Fri, 29 Jul 2016 16:43:12 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>html文件直传到S3</title>
+        <description>&lt;p&gt;主要实现:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;html文件拖拽上传
+
+文件上传到aws.s3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;html&quot;&gt;html文件拖拽上传&lt;/h2&gt;
+
+&lt;p&gt;drop是html5的新特性,详情看&lt;a href=&quot;http://www.w3school.com.cn/html5/html_5_draganddrop.asp&quot;&gt;W3SCHOOL介绍&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;可以通过元素监听drop事件,获取到拖动到容器中的文件对象数组&lt;/p&gt;
+
+&lt;p&gt;首先要先阻止document默认监听事件&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$(document).on({
+    dragleave:function(e){
+        e.preventDefault();
+    },
+    drop:function(e){
+        e.preventDefault();
+    },
+    dragenter:function(e){
+        e.preventDefault();
+    },
+    dragover:function(e){
+        e.preventDefault();
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;之后监听文件放置容器的drop事件&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; var dragContainer = $(&quot;#dropContainer&quot;)[0];
+ dragContainer.addEventListener(&quot;drop&quot;,function(e){
+    e.preventDefault(); //取消默认浏览器拖拽效果
+    var fileList = e.dataTransfer.files; //获取文件对象
+	var ImageList = {};
+	if(fileList.length == 0){
+	    console.log(&#39;no file added!&#39;);
+	    return false;
+	}
+	//file filter
+	for(var i = 0 , j = 0 ; i &amp;lt; fileList.length ; i++ ){
+	    if(fileList[i].type.indexOf(&#39;image&#39;) === -1){
+	        delete fileList[i];
+	    }
+	    else{
+	        ImageList[j++] = fileList[i];
+	    }
+	}
+
+	for(var key in ImageList){
+	    if(ImageList[key].size/1024 &amp;gt; that.getLimitSize()){
+	        delete ImageList[key];
+	    }
+	    else{
+		    that.appendUploadQueue(ImageList[key]);
+	    }
+	}
+	// that.appendUploadQueue(ImageList);
+	},false);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;首先同样是阻止默认事件的执行。&lt;/p&gt;
+
+&lt;p&gt;通过event.dataTransfer.files可以获取到通过前端拖拽到容器的文件对象数组&lt;/p&gt;
+
+&lt;p&gt;上面做了两个过滤,一个是文件类型非图片的过滤,一个是文件尺寸太大的过滤&lt;/p&gt;
+
+&lt;p&gt;通过数据处理塞选可用的文件。&lt;/p&gt;
+
+&lt;p&gt;appendUploadQueue是处理文件上传队列的方法&lt;/p&gt;
+
+&lt;h2 id=&quot;awss3&quot;&gt;使用aws.s3需要了解的相关知识。&lt;/h2&gt;
+
+&lt;p&gt;aws:Amazon Web Services&lt;/p&gt;
+
+&lt;p&gt;s3:aws的一种,全称叫Simple Storage Service&lt;/p&gt;
+
+&lt;p&gt;bucket:中文翻译叫存储桶。Amazon S3 存储桶名称在全球是唯一的（无论是在哪个 AWS 区域中创建存储桶）。在创建存储桶时指定名称。&lt;/p&gt;
+
+&lt;p&gt;region:地区。我大中华地区只有一个节点(cn-north-1)。&lt;a href=&quot;https://docs.aws.amazon.com/zh_cn/general/latest/gr/rande.html#s3_region&quot;&gt;节点列表&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Access Key ID:相当于账号;&lt;/p&gt;
+
+&lt;p&gt;Secret Access Key:相当于密码;&lt;/p&gt;
+
+&lt;p&gt;key:很多地方都有key,大部分指的是文件名。。。。吧&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;常用于文件存储(应该是)&lt;/p&gt;
+
+&lt;p&gt;html文件直传用的是aws提供的&lt;a href=&quot;http://docs.amazonaws.cn/en_us/AWSJavaScriptSDK/guide/browser-intro.html&quot;&gt;javascriptSDK&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;首先需要设置当前的账号密码,也就是上面提到的Access Key ID和Secret Access Key&lt;/p&gt;
+
+&lt;p&gt;这里做了全局的配置&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    AWS.config.update({
+		accessKeyId: that.ACCESS_KEY_ID,
+		secretAccessKey: that.SECRECT_ACCESS_KEY
+	});
+	AWS.config.region = that.REGION;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;下面是上面提到的appendUploadQueue方法的实现&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   var params = {
+	    Key: that.getFullStorePath() +&quot;/&quot;+that.getTimeString()+file.name,
+	    ContentType: file.type,
+	    Body: file,
+	    ACL:&quot;public-read&quot;
+	};
+    (new AWS.S3({params: {Bucket: that.BUCKET}})).upload(params, function (err, originData) {
+	    // results.innerHTML = err ? &#39;ERROR!&#39; : &#39;UPLOADED.&#39;;
+		if(err){
+			console.log(err);
+			alert(&#39;上传出错&#39;);
+		}
+		else{
+			if(that.settings.complete){
+				var data = originData;
+				data.Location = that.CDN_URL_PATH + data.Location.split(&quot;amazonaws.com.cn/&quot;)[1];
+				that.settings.complete &amp;amp;&amp;amp; that.settings.complete(data);
+        		that.appendThumbnail(data);
+			}
+		}
+	});
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;需要注意的是,文件同名是会覆盖掉之前的文件的,可以通过配置选项来实现可同名存在。&lt;/p&gt;
+
+&lt;p&gt;上面是通过加了时间字符串来做到文件名的唯一性。&lt;/p&gt;
+
+&lt;p&gt;Body是上传文件的主要内容。&lt;/p&gt;
+
+&lt;p&gt;ACL是文件上传之后的权限。&lt;a href=&quot;https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/dev/acl-overview.html&quot;&gt;这里是权限表&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;*用户在请求上传成功返回资源的Location报xml access denied一般是acl未设置正确。&lt;/p&gt;
+
+&lt;p&gt;*upload请求错误一般是s3服务器xml跨域未配置允许域和put请求&lt;/p&gt;
+</description>
+        <pubDate>Fri, 29 Jul 2016 16:00:00 +0800</pubDate>
+        <link>http://chenbingshu.com///2016/html%E6%96%87%E4%BB%B6%E7%9B%B4%E4%BC%A0%E5%88%B0S3/</link>
+        <guid isPermaLink="true">http://chenbingshu.com///2016/html%E6%96%87%E4%BB%B6%E7%9B%B4%E4%BC%A0%E5%88%B0S3/</guid>
+        
+        <category>文件</category>
+        
+        <category>直传</category>
+        
+        <category>aws</category>
+        
+        <category>s3</category>
+        
+        
+        <category>前端</category>
+        
+      </item>
     
       <item>
         <title>如何在服务端运行node服务器来自动更新github代码</title>
@@ -883,139 +1051,6 @@ $(&quot;body&quot;).html(viewObj.$el);
         <category>chrome插件</category>
         
         <category>开发</category>
-        
-        
-        <category>前端</category>
-        
-      </item>
-    
-      <item>
-        <title>Performance Api在网页性能监测的使用和表现差异</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;为什么要做性能监测?&lt;/h2&gt;
-&lt;p&gt;著名的谁说过一句话，如果连性能问题在哪里都不知道，如何做优化？所以，性能监测很明显是为了性能优化！&lt;/p&gt;
-
-&lt;h2 id=&quot;performance&quot;&gt;Performance对象&lt;/h2&gt;
-&lt;p&gt;html5提供了很多有利于前端攻城狮的webapi&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/API&quot;&gt;(技术文档)&lt;/a&gt;
-以下内容主要讲的是webapi的performace接口及相关使用&lt;/p&gt;
-
-&lt;p&gt;在chrome控制台打印window.performance,可查看performance提供的api,如图:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/post/20150510/obj.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;memory&lt;/strong&gt;	提供了3个参数&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;* jsHeapSizeLimit js内存使用大小限制
-* totalJSHeapSize js总内存？？
-* usedJSHeapSize  js已使用内存
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;navigation&lt;/strong&gt;对象提供了2个参数&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;* redirectCount
-* type
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;redirectCount表示到达当前页面的重定向次数&lt;/p&gt;
-
-&lt;p&gt;type&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;0:正常的url访问或点击跳转&lt;/li&gt;
-  &lt;li&gt;1:刷新页面&lt;/li&gt;
-  &lt;li&gt;2:通过历史纪录访问当前页面&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;onresourcetimingbufferfull&lt;/strong&gt;属性是一个事件监听函数，当&lt;strong&gt;resourcetimingbufferfull&lt;/strong&gt;事件被触发的时候调用。而
-&lt;strong&gt;resourcetimingbufferfull&lt;/strong&gt;是在浏览器资源缓冲区蛮的时候触发&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;performance.onresourcetimingbufferfull = function(){}; **timing** 对象提供了一组页面资源加载过程中的用时参数,也是网页性能监测主要要用到的api
-
-
-* 	connectEnd:1462861568320
-* 	connectStart:1462861568320
-* 	domComplete:1462861569995
-* 	domContentLoadedEventEnd:1462861569578
-* 	domContentLoadedEventStart:1462861569528
-* 	domInteractive:1462861569528
-* 	domLoading:1462861568659
-* 	domainLookupEnd:1462861568320
-* 	domainLookupStart:1462861568320
-* 	fetchStart:1462861568320
-* 	loadEventEnd:1462861570046
-* 	loadEventStart:1462861569995
-* 	navigationStart:1462861567902
-* 	redirectEnd:0
-* 	redirectStart:0
-* 	requestStart:1462861568322
-* 	responseEnd:1462861569171
-* 	responseStart:1462861568656
-* 	secureConnectionStart:0
-* 	unloadEventEnd:0
-* 	unloadEventStart:0
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;以下是来找磨叽啦（&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/API/Performance&quot;&gt;mozilla&lt;/a&gt;）的一张关于这些参数的计时起止点:
-&lt;img src=&quot;/images/post/20150510/illustration.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;具体资源的性能监测方法 getEntries():
-通过该方法，可以获取到所有资源的加载用时等参数
-var sourceEntries = window.performance.getEntries();
-打印一下sourceEntries数组，可以获取到其成员包含以下属性&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;connectEnd:119.33500000000001
-connectStart:119.33500000000001
-domainLookupEnd:119.33500000000001
-domainLookupStart:119.33500000000001
-duration:106.41499999999999
-entryType:&quot;resource&quot;
-fetchStart:119.33500000000001
-initiatorType:&quot;link&quot;
-name:&quot;http://****/m/css/common_lib_****/less/common/***.css&quot;
-redirectEnd:0
-redirectStart:0
-requestStart:206.28000000000003
-responseEnd:225.75
-responseStart:215.60000000000002
-secureConnectionStart:0
-startTime:119.33500000000001
-workerStart:0
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;该方法能够获取到的资源有css,js,img,xmlhttprequest。这个方法基本能满足网页性能监测的要求。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;打点方法:performance.now()&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;当然，如果以上的timing对象提供的参数不能满足你的特殊监测要求，你还可以使用performance的now方法来定制时间监测点；
-如:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var startTime = performance.now();
-&amp;lt;script src=&#39;http://*****.js&#39;&amp;gt;&amp;lt;/script&amp;gt;
-var endTime = performance.now();
-var jsLoadTime = endTime - startTime; 可以大致统计到js资源加载的时间
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;h2 id=&quot;section-1&quot;&gt;浏览器支持&amp;amp;兼容&lt;/h2&gt;
-    &lt;p&gt;&lt;img src=&quot;/images/post/20150510/support.png&quot; alt=&quot;image&quot; /&gt;
-在用于项目中使用的时候，发现getEntries方法紧在chrome支持，用于移动端性能监测时候，getEntries也只能在安卓手机获取到资源的时间参数，具体的资源还是只能靠打点来实现。我有什么办法呢？没有。做到后面发现主要的群体ios不能监测到。。。。白做了！！！&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        <pubDate>Tue, 10 May 2016 18:10:11 +0800</pubDate>
-        <link>http://chenbingshu.com///2016/performance_api%E5%9C%A8%E7%BD%91%E9%A1%B5%E6%80%A7%E8%83%BD%E7%9B%91%E6%B5%8B%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E8%A1%A8%E7%8E%B0%E5%B7%AE%E5%BC%82/</link>
-        <guid isPermaLink="true">http://chenbingshu.com///2016/performance_api%E5%9C%A8%E7%BD%91%E9%A1%B5%E6%80%A7%E8%83%BD%E7%9B%91%E6%B5%8B%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E8%A1%A8%E7%8E%B0%E5%B7%AE%E5%BC%82/</guid>
-        
-        <category>性能监测</category>
-        
-        <category>performance</category>
-        
-        <category>兼容</category>
         
         
         <category>前端</category>
