@@ -5,8 +5,8 @@
     <description>Curtis&#39;s Blog</description>
     <link>http://chenbingshu.com///</link>
     <atom:link href="http://chenbingshu.com///feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 29 Jul 2016 17:43:27 +0800</pubDate>
-    <lastBuildDate>Fri, 29 Jul 2016 17:43:27 +0800</lastBuildDate>
+    <pubDate>Mon, 01 Aug 2016 10:50:39 +0800</pubDate>
+    <lastBuildDate>Mon, 01 Aug 2016 10:50:39 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -471,6 +471,12 @@ loader.load(&#39;texture.png&#39;, textureLoad);
       <item>
         <title>推荐阅读</title>
         <description>&lt;p&gt;推荐阅读文章列表(时间排序) :&lt;/p&gt;
+
+&lt;p&gt;8.1&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://imweb.io/topic/55e32fd5771670e207a16bb9&quot;&gt;前端如何呼风唤雨&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.xuebuyuan.com/2129104.html&quot;&gt;Chrome浏览器中的JavaScript多线程—WebWorker&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;7.29&lt;/p&gt;
 
