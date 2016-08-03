@@ -29,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/_posts/2016-07-11-推荐阅读.md">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+              <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -85,8 +85,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="234" />
-    <option name="y" value="146" />
+    <option name="x" value="394" />
+    <option name="y" value="134" />
     <option name="width" value="1206" />
     <option name="height" value="694" />
   </component>
@@ -305,15 +305,16 @@
       <workItem from="1470017094249" duration="17000" />
       <workItem from="1470017196176" duration="825000" />
       <workItem from="1470192097812" duration="699000" />
-      <workItem from="1470203152924" duration="21000" />
+      <workItem from="1470203152924" duration="617000" />
+      <workItem from="1470209650106" duration="16000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53748000" />
+    <option name="totallyTimeSpent" value="54360000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="234" y="146" width="1206" height="694" extended-state="1" />
+    <frame x="394" y="134" width="1206" height="694" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23881857" sideWeight="0.49459043" order="0" side_tool="false" content_ui="combo" />
@@ -672,7 +673,7 @@
     <entry file="file://$PROJECT_DIR$/_posts/2016-07-11-推荐阅读.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
           <folding />
         </state>
       </provider>
