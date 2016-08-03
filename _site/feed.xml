@@ -5,8 +5,8 @@
     <description>Curtis&#39;s Blog</description>
     <link>http://chenbingshu.com///</link>
     <atom:link href="http://chenbingshu.com///feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 03 Aug 2016 13:46:56 +0800</pubDate>
-    <lastBuildDate>Wed, 03 Aug 2016 13:46:56 +0800</lastBuildDate>
+    <pubDate>Wed, 03 Aug 2016 15:34:58 +0800</pubDate>
+    <lastBuildDate>Wed, 03 Aug 2016 15:34:58 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -473,6 +473,8 @@ loader.load(&#39;texture.png&#39;, textureLoad);
         <description>&lt;p&gt;推荐阅读文章列表(时间排序) :&lt;/p&gt;
 
 &lt;p&gt;8.3&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000006140042&quot;&gt;移动端H5图片上传的那些坑&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000006150186&quot;&gt;在JavaScript中，如何判断数组是数组?&lt;/a&gt;&lt;/p&gt;
 
