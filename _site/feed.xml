@@ -5,8 +5,8 @@
     <description>Curtis&#39;s Blog</description>
     <link>http://chenbingshu.com///</link>
     <atom:link href="http://chenbingshu.com///feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 24 Aug 2016 10:06:13 +0800</pubDate>
-    <lastBuildDate>Wed, 24 Aug 2016 10:06:13 +0800</lastBuildDate>
+    <pubDate>Wed, 07 Sep 2016 12:59:14 +0800</pubDate>
+    <lastBuildDate>Wed, 07 Sep 2016 12:59:14 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -471,6 +471,10 @@ loader.load(&#39;texture.png&#39;, textureLoad);
       <item>
         <title>推荐阅读</title>
         <description>&lt;p&gt;推荐阅读文章列表(时间排序) :&lt;/p&gt;
+
+&lt;p&gt;9.7&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000006808445&quot;&gt;js的沙箱内容&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;8.24&lt;/p&gt;
 
