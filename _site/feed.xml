@@ -5,8 +5,8 @@
     <description>Curtis&#39;s Blog</description>
     <link>http://chenbingshu.com///</link>
     <atom:link href="http://chenbingshu.com///feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 23 Sep 2016 12:13:36 +0800</pubDate>
-    <lastBuildDate>Fri, 23 Sep 2016 12:13:36 +0800</lastBuildDate>
+    <pubDate>Fri, 23 Sep 2016 15:44:12 +0800</pubDate>
+    <lastBuildDate>Fri, 23 Sep 2016 15:44:12 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -16,7 +16,7 @@
 
 &lt;p&gt;工具就会帮你生成项目的初始化文件(如下图)&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/post/20150923/init-file-instruct.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/post/20160923/init-file-instruct.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;pages是页面文件的目录，里面每个文件夹代表一个页面。&lt;/p&gt;
 
@@ -64,6 +64,165 @@
 
 &lt;p&gt;app.wxss是公用的样式文件&lt;/p&gt;
 
+&lt;h2 id=&quot;section-1&quot;&gt;第一个页面&lt;/h2&gt;
+&lt;p&gt;在项目初始化时候已经在/project/pages/index目录下创建了应用程序的首页&lt;/p&gt;
+
+&lt;p&gt;index.js文件
+    var app = getApp()
+    Page({
+      data: {
+        motto: ‘Hello World’,
+        userInfo: {}
+      },
+      //事件处理函数
+      bindViewTap: function() {
+        wx.navigateTo({
+          url: ‘../logs/logs’
+        })
+      },
+      onLoad: function () {
+        console.log(‘onLoad’)
+        var that = this
+        //调用应用实例的方法获取全局数据
+        app.getUserInfo(function(userInfo){
+          //更新数据
+          that.setData({
+            userInfo:userInfo
+          })
+          that.update()
+        })
+      }
+    })&lt;/p&gt;
+
+&lt;p&gt;data是在index.wxml里面能够渲染的数据&lt;/p&gt;
+
+&lt;p&gt;bindViewTap是提供给wxml元素节点用于绑定触发的&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &amp;lt;view  bindtap=&quot;bindViewTap&quot; class=&quot;userinfo&quot;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;onLoad是当前页面的加载完触发的生命周期函数&lt;/p&gt;
+
+&lt;p&gt;下面实现一个简单的页面(效果图)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/post/20160923/view.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;index.js文件&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//获取应用实例
+var app = getApp();
+Page({
+  data: {
+    indicatorDots: true,
+    vertical: false,
+    autoplay: true,
+    interval: 3000,
+    duration: 1000,
+    thumbArrar:[
+      {
+        url:&quot;http://www.chenbingshu.com&quot;,
+        image:&quot;image/thumb_1.png&quot;
+      },
+      {
+        url:&quot;http://www.chenbingshu.com&quot;,
+        image:&quot;image/thumb_2.png&quot;
+      },
+      {
+        url:&quot;http://www.chenbingshu.com&quot;,
+        image:&quot;image/thumb_3.png&quot;
+      },
+      {
+        url:&quot;http://www.chenbingshu.com&quot;,
+        image:&quot;image/thumb_4.png&quot;
+      },
+      {
+        url:&quot;http://www.chenbingshu.com&quot;,
+        image:&quot;image/thumb_5.png&quot;
+      },
+      {
+        url:&quot;http://www.chenbingshu.com&quot;,
+        image:&quot;image/thumb_6.jpg&quot;
+      },
+      {
+        url:&quot;http://www.chenbingshu.com&quot;,
+        image:&quot;image/thumb_7.png&quot;
+      }
+    ],
+    iconArray:[
+      {
+        url:&quot;http://www.chenbingshu.com&quot;,
+        image:&quot;image/icon_2.png&quot;
+      },
+      {
+        url:&quot;http://www.chenbingshu.com&quot;,
+        image:&quot;image/icon_1.png&quot;,
+        title:&quot;&quot;
+      },
+      {
+        url:&quot;http://www.chenbingshu.com&quot;,
+        image:&quot;image/icon_3.png&quot;
+      },
+      {
+        url:&quot;http://www.chenbingshu.com&quot;,
+        image:&quot;image/icon_4.png&quot;
+      }
+    ],
+    swiperArray:[
+      {
+        bgColor:&#39;green&#39;,
+        image:&#39;image/banner_1.png&#39;
+      },
+      {
+        bgColor:&#39;red&#39;,
+        image:&#39;image/banner_2.png&#39;
+      },
+      {
+        bgColor:&#39;yellow&#39;,
+        image:&#39;image/banner_3.png&#39;
+      }
+    ]
+  }
+});
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;index.wxml文件
+&lt;!--index.wxml--&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;view class=&quot;container&quot;&amp;gt;
+  &amp;lt;view class=&quot;section section_gap swiper&quot;&amp;gt;
+        &amp;lt;!--swiper--&amp;gt;
+        &amp;lt;swiper style=&quot;height:200px;&quot; indicator-dots=&quot;&quot; vertical=&quot;&quot; autoplay=&quot;&quot; interval=&quot;&quot; duration=&quot;&quot;&amp;gt;
+            &amp;lt;block wx:for-items=&quot;&quot;&amp;gt;
+                &amp;lt;swiper-item&amp;gt;
+                    &amp;lt;view class=&quot;swiper-item bc_&quot;&amp;gt;
+                        &amp;lt;image class=&quot;swiper-pic&quot; src=&quot;&quot;&amp;gt;&amp;lt;/image&amp;gt;
+                    &amp;lt;/view&amp;gt;
+                &amp;lt;/swiper-item&amp;gt;
+            &amp;lt;/block&amp;gt;
+        &amp;lt;/swiper&amp;gt;
+        &amp;lt;!--icon--&amp;gt;
+        &amp;lt;view class=&quot;clearfix icon-view&quot;&amp;gt;
+            &amp;lt;view class=&quot;icon-item&quot; wx:for-items=&quot;&quot;&amp;gt;
+                &amp;lt;image style=&quot;width:40px;height:40px;&quot; class=&quot;icon&quot; src=&quot;&quot;&amp;gt;&amp;lt;/image&amp;gt;
+            &amp;lt;/view&amp;gt;
+        &amp;lt;/view&amp;gt;
+        &amp;lt;view class=&quot;clearfix&quot;&amp;gt;
+            &amp;lt;view class=&quot;wrap&quot;&amp;gt;
+                &amp;lt;view class=&quot;fleft&quot; style=&quot;width:50%;&quot; wx:for-items=&quot;&quot;&amp;gt;
+                    &amp;lt;view class=&quot;small-wrap&quot;&amp;gt;
+                        &amp;lt;view class=&quot;small-wrap white-bg image-box&quot;&amp;gt;
+                            &amp;lt;image style=&quot;width:100%;&quot; class=&quot;icon&quot; src=&quot;&quot;&amp;gt;&amp;lt;/image&amp;gt;
+                        &amp;lt;/view&amp;gt;
+                    &amp;lt;view class=&quot;wrap&quot;&amp;gt;
+                &amp;lt;/view&amp;gt;
+            &amp;lt;/view&amp;gt;
+        &amp;lt;/view&amp;gt;
+    &amp;lt;/view&amp;gt;
+&amp;lt;/view&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 </description>
         <pubDate>Fri, 29 Jul 2016 16:00:00 +0800</pubDate>
         <link>http://chenbingshu.com///2016/%E5%BE%AE%E4%BF%A1%E5%BA%94%E7%94%A8%E5%8F%B7%E5%BC%80%E5%8F%91/</link>
