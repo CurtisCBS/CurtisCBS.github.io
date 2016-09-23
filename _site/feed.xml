@@ -5,9 +5,78 @@
     <description>Curtis&#39;s Blog</description>
     <link>http://chenbingshu.com///</link>
     <atom:link href="http://chenbingshu.com///feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 18 Sep 2016 09:53:08 +0800</pubDate>
-    <lastBuildDate>Sun, 18 Sep 2016 09:53:08 +0800</lastBuildDate>
+    <pubDate>Fri, 23 Sep 2016 12:13:36 +0800</pubDate>
+    <lastBuildDate>Fri, 23 Sep 2016 12:13:36 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>微信应用号开发</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;文件目录结构&lt;/h2&gt;
+&lt;p&gt;配置好appid，项目名称，选择一个空项目文件夹，微信开发者&lt;/p&gt;
+
+&lt;p&gt;工具就会帮你生成项目的初始化文件(如下图)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/post/20150923/init-file-instruct.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;pages是页面文件的目录，里面每个文件夹代表一个页面。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    一个页面包涵一个js文件，一个wxml（可以看作html），一个wxss（可以看作css文件）
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;utils用于存放工具或者公用方法。&lt;/p&gt;
+
+&lt;p&gt;app.js是应用号的主入口。这里可以通过app的生命周期做业务处理。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;App({
+  onLaunch: function () {
+    //调用API从本地缓存中获取数据
+    var logs = wx.getStorageSync(&#39;logs&#39;) || []
+    logs.unshift(Date.now())
+    wx.setStorageSync(&#39;logs&#39;, logs)
+  },
+  getUserInfo:function(cb){
+    var that = this;
+    if(this.globalData.userInfo){
+      typeof cb == &quot;function&quot; &amp;amp;&amp;amp; cb(this.globalData.userInfo)
+    }else{
+      //调用登录接口
+      wx.login({
+        success: function () {
+          wx.getUserInfo({
+            success: function (res) {
+              that.globalData.userInfo = res.userInfo;
+              typeof cb == &quot;function&quot; &amp;amp;&amp;amp; cb(that.globalData.userInfo)
+            }
+          })
+        }
+      });
+    }
+  },
+  globalData:{
+    userInfo:null
+  }
+})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;app.json是当前项目的目录配置&lt;/p&gt;
+
+&lt;p&gt;app.wxss是公用的样式文件&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 29 Jul 2016 16:00:00 +0800</pubDate>
+        <link>http://chenbingshu.com///2016/%E5%BE%AE%E4%BF%A1%E5%BA%94%E7%94%A8%E5%8F%B7%E5%BC%80%E5%8F%91/</link>
+        <guid isPermaLink="true">http://chenbingshu.com///2016/%E5%BE%AE%E4%BF%A1%E5%BA%94%E7%94%A8%E5%8F%B7%E5%BC%80%E5%8F%91/</guid>
+        
+        <category>微信应用号</category>
+        
+        <category>前端</category>
+        
+        
+        <category>前端</category>
+        
+      </item>
     
       <item>
         <title>html文件直传到S3</title>
@@ -1075,38 +1144,6 @@ $(&quot;body&quot;).html(viewObj.$el);
         <category>调试</category>
         
         <category>微信</category>
-        
-        
-        <category>前端</category>
-        
-      </item>
-    
-      <item>
-        <title>chrome插件开发</title>
-        <description>&lt;p&gt;之前因为公司业务的需求，阉割了在web端的账号密码登录流程，只能通过发送短信验证码的方式来登录，尽管如此，原来老的登录接口还在。为了提高开发效率，特别是在测试环节，开发了一个chrome插件来继续使用老版的接口来实现用户的帐号密码登录&lt;/p&gt;
-
-&lt;h2 id=&quot;chrome-extension&quot;&gt;开发chrome extension的需要知道的基本知识&lt;/h2&gt;
-&lt;p&gt;chrome插件是主要用三部分构成&lt;/p&gt;
-
-&lt;p&gt;*.浏览器地址栏右侧图标点击弹出的窗口页
-*.运行在后台的脚本文件
-*.嵌入到当前访问页的脚本文件&lt;/p&gt;
-
-&lt;p&gt;三个部分可通过chrome对象方法进行通信&lt;/p&gt;
-
-&lt;h2 id=&quot;mainfest&quot;&gt;mainfest配置文件&lt;/h2&gt;
-&lt;p&gt;首先创建一个文件夹，用于存放当前插件，然后创建一个mainfest.json文件
-该文件主要是像chrome浏览器解释该插件需要哪些依赖
-…..算了，先不写了，好困，下次再写吧
-..这篇比较长,先放着呢,嗯&lt;/p&gt;
-</description>
-        <pubDate>Thu, 12 May 2016 21:13:12 +0800</pubDate>
-        <link>http://chenbingshu.com///2016/chrome%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/</link>
-        <guid isPermaLink="true">http://chenbingshu.com///2016/chrome%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/</guid>
-        
-        <category>chrome插件</category>
-        
-        <category>开发</category>
         
         
         <category>前端</category>
