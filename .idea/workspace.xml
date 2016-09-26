@@ -20,18 +20,7 @@
     <favorites_list name="CurtisCBS" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="header.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/_includes/header.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -68,10 +57,10 @@
         <option value="$PROJECT_DIR$/_posts/2016-07-21-如何在服务端运行node服务器来自动更新github代码.md" />
         <option value="$PROJECT_DIR$/_posts/2016-07-29-html文件直传到S3.md" />
         <option value="$PROJECT_DIR$/_config.yml" />
-        <option value="$PROJECT_DIR$/_posts/2016-07-11-推荐阅读.md" />
         <option value="$USER_HOME$/Desktop/wechat-app/demo/page/component/component-pages/wx-swiper/wx-swiper.js" />
         <option value="$PROJECT_DIR$/_posts/2016-09-23-微信应用号开发.md" />
         <option value="$PROJECT_DIR$/_includes/header.html" />
+        <option value="$PROJECT_DIR$/_posts/2016-07-11-推荐阅读.md" />
       </list>
     </option>
   </component>
@@ -83,6 +72,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
+    <option name="x" value="441" />
     <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="731" />
@@ -112,6 +102,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -200,8 +192,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -376,15 +366,16 @@
       <workItem from="1474617065370" duration="67000" />
       <workItem from="1474617393358" duration="340000" />
       <workItem from="1474621382773" duration="33000" />
-      <workItem from="1474854013032" duration="16000" />
+      <workItem from="1474854013032" duration="614000" />
+      <workItem from="1474873447481" duration="23000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62940000" />
+    <option name="totallyTimeSpent" value="63561000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="731" extended-state="6" />
+    <frame x="441" y="23" width="1280" height="731" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23828125" sideWeight="0.49459043" order="0" side_tool="false" content_ui="combo" />
@@ -698,13 +689,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2016-07-11-推荐阅读.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2016-05-12-chrome插件开发.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -733,18 +717,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2016-09-23-微信应用号开发.md">
+    <entry file="file://$PROJECT_DIR$/_posts/2016-09-23-微信应用号开发.md" />
+    <entry file="file://$PROJECT_DIR$/_posts/2016-07-11-推荐阅读.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+        <state relative-caret-position="165">
+          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_includes/header.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
+        <state relative-caret-position="150">
+          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
           <folding />
         </state>
       </provider>
