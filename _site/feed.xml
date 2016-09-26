@@ -5,245 +5,9 @@
     <description>Curtis&#39;s Blog</description>
     <link>http://chenbingshu.com///</link>
     <atom:link href="http://chenbingshu.com///feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 23 Sep 2016 17:03:49 +0800</pubDate>
-    <lastBuildDate>Fri, 23 Sep 2016 17:03:49 +0800</lastBuildDate>
+    <pubDate>Mon, 26 Sep 2016 09:41:28 +0800</pubDate>
+    <lastBuildDate>Mon, 26 Sep 2016 09:41:28 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
-    
-      <item>
-        <title>微信应用号开发</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/CurtisCBS/wx-app&quot;&gt;下载demo&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;文件目录结构&lt;/p&gt;
-
-&lt;p&gt;配置好appid，项目名称，选择一个空项目文件夹，微信开发者&lt;/p&gt;
-
-&lt;p&gt;工具就会帮你生成项目的初始化文件(如下图)&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/post/20160923/init-file-instruct.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;pages是页面文件的目录，里面每个文件夹代表一个页面。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    一个页面包涵一个js文件，一个wxml（可以看作html），一个wxss（可以看作css文件）
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;utils用于存放工具或者公用方法。&lt;/p&gt;
-
-&lt;p&gt;app.js是应用号的主入口。这里可以通过app的生命周期做业务处理。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;App({
-  onLaunch: function () {
-    //调用API从本地缓存中获取数据
-    var logs = wx.getStorageSync(&#39;logs&#39;) || []
-    logs.unshift(Date.now())
-    wx.setStorageSync(&#39;logs&#39;, logs)
-  },
-  getUserInfo:function(cb){
-    var that = this;
-    if(this.globalData.userInfo){
-      typeof cb == &quot;function&quot; &amp;amp;&amp;amp; cb(this.globalData.userInfo)
-    }else{
-      //调用登录接口
-      wx.login({
-        success: function () {
-          wx.getUserInfo({
-            success: function (res) {
-              that.globalData.userInfo = res.userInfo;
-              typeof cb == &quot;function&quot; &amp;amp;&amp;amp; cb(that.globalData.userInfo)
-            }
-          })
-        }
-      });
-    }
-  },
-  globalData:{
-    userInfo:null
-  }
-})
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;app.json是当前项目的目录配置&lt;/p&gt;
-
-&lt;p&gt;app.wxss是公用的样式文件&lt;/p&gt;
-
-&lt;h2 id=&quot;section&quot;&gt;第一个页面&lt;/h2&gt;
-&lt;p&gt;在项目初始化时候已经在/project/pages/index目录下创建了应用程序的首页&lt;/p&gt;
-
-&lt;p&gt;index.js文件&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var app = getApp()
-Page({
-  data: {
-    motto: &#39;Hello World&#39;,
-    userInfo: {}
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: &#39;../logs/logs&#39;
-    })
-  },
-  onLoad: function () {
-    console.log(&#39;onLoad&#39;)
-    var that = this
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
-      })
-      that.update()
-    })
-  }
-})
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;data是在index.wxml里面能够渲染的数据&lt;/p&gt;
-
-&lt;p&gt;bindViewTap是提供给wxml元素节点用于绑定触发的&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &amp;lt;view  bindtap=&quot;bindViewTap&quot; class=&quot;userinfo&quot;&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;onLoad是当前页面的加载完触发的生命周期函数&lt;/p&gt;
-
-&lt;p&gt;下面实现一个简单的页面(效果图)&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/post/20160923/view.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;index.js文件&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//获取应用实例
-var app = getApp();
-Page({
-  data: {
-    indicatorDots: true,
-    vertical: false,
-    autoplay: true,
-    interval: 3000,
-    duration: 1000,
-    thumbArrar:[
-      {
-        url:&quot;http://www.chenbingshu.com&quot;,
-        image:&quot;image/thumb_1.png&quot;
-      },
-      {
-        url:&quot;http://www.chenbingshu.com&quot;,
-        image:&quot;image/thumb_2.png&quot;
-      },
-      {
-        url:&quot;http://www.chenbingshu.com&quot;,
-        image:&quot;image/thumb_3.png&quot;
-      },
-      {
-        url:&quot;http://www.chenbingshu.com&quot;,
-        image:&quot;image/thumb_4.png&quot;
-      },
-      {
-        url:&quot;http://www.chenbingshu.com&quot;,
-        image:&quot;image/thumb_5.png&quot;
-      },
-      {
-        url:&quot;http://www.chenbingshu.com&quot;,
-        image:&quot;image/thumb_6.jpg&quot;
-      },
-      {
-        url:&quot;http://www.chenbingshu.com&quot;,
-        image:&quot;image/thumb_7.png&quot;
-      }
-    ],
-    iconArray:[
-      {
-        url:&quot;http://www.chenbingshu.com&quot;,
-        image:&quot;image/icon_2.png&quot;
-      },
-      {
-        url:&quot;http://www.chenbingshu.com&quot;,
-        image:&quot;image/icon_1.png&quot;,
-        title:&quot;&quot;
-      },
-      {
-        url:&quot;http://www.chenbingshu.com&quot;,
-        image:&quot;image/icon_3.png&quot;
-      },
-      {
-        url:&quot;http://www.chenbingshu.com&quot;,
-        image:&quot;image/icon_4.png&quot;
-      }
-    ],
-    swiperArray:[
-      {
-        bgColor:&#39;green&#39;,
-        image:&#39;image/banner_1.png&#39;
-      },
-      {
-        bgColor:&#39;red&#39;,
-        image:&#39;image/banner_2.png&#39;
-      },
-      {
-        bgColor:&#39;yellow&#39;,
-        image:&#39;image/banner_3.png&#39;
-      }
-    ]
-  }
-});
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;index.wxml文件
-&lt;!--index.wxml--&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;view class=&quot;container&quot;&amp;gt;
-  &amp;lt;view class=&quot;section section_gap swiper&quot;&amp;gt;
-        &amp;lt;!--swiper--&amp;gt;
-        &amp;lt;swiper style=&quot;height:200px;&quot; indicator-dots=&quot;&quot; vertical=&quot;&quot; autoplay=&quot;&quot; interval=&quot;&quot; duration=&quot;&quot;&amp;gt;
-            &amp;lt;block wx:for-items=&quot;&quot;&amp;gt;
-                &amp;lt;swiper-item&amp;gt;
-                    &amp;lt;view class=&quot;swiper-item bc_&quot;&amp;gt;
-                        &amp;lt;image class=&quot;swiper-pic&quot; src=&quot;&quot;&amp;gt;&amp;lt;/image&amp;gt;
-                    &amp;lt;/view&amp;gt;
-                &amp;lt;/swiper-item&amp;gt;
-            &amp;lt;/block&amp;gt;
-        &amp;lt;/swiper&amp;gt;
-        &amp;lt;!--icon--&amp;gt;
-        &amp;lt;view class=&quot;clearfix icon-view&quot;&amp;gt;
-            &amp;lt;view class=&quot;icon-item&quot; wx:for-items=&quot;&quot;&amp;gt;
-                &amp;lt;image style=&quot;width:40px;height:40px;&quot; class=&quot;icon&quot; src=&quot;&quot;&amp;gt;&amp;lt;/image&amp;gt;
-            &amp;lt;/view&amp;gt;
-        &amp;lt;/view&amp;gt;
-        &amp;lt;view class=&quot;clearfix&quot;&amp;gt;
-            &amp;lt;view class=&quot;wrap&quot;&amp;gt;
-                &amp;lt;view class=&quot;fleft&quot; style=&quot;width:50%;&quot; wx:for-items=&quot;&quot;&amp;gt;
-                    &amp;lt;view class=&quot;small-wrap&quot;&amp;gt;
-                        &amp;lt;view class=&quot;small-wrap white-bg image-box&quot;&amp;gt;
-                            &amp;lt;image style=&quot;width:100%;&quot; class=&quot;icon&quot; src=&quot;&quot;&amp;gt;&amp;lt;/image&amp;gt;
-                        &amp;lt;/view&amp;gt;
-                    &amp;lt;view class=&quot;wrap&quot;&amp;gt;
-                &amp;lt;/view&amp;gt;
-            &amp;lt;/view&amp;gt;
-        &amp;lt;/view&amp;gt;
-    &amp;lt;/view&amp;gt;
-&amp;lt;/view&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/CurtisCBS/wx-app&quot;&gt;下载demo&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Fri, 29 Jul 2016 16:00:00 +0800</pubDate>
-        <link>http://chenbingshu.com///2016/%E5%BE%AE%E4%BF%A1%E5%BA%94%E7%94%A8%E5%8F%B7%E5%BC%80%E5%8F%91/</link>
-        <guid isPermaLink="true">http://chenbingshu.com///2016/%E5%BE%AE%E4%BF%A1%E5%BA%94%E7%94%A8%E5%8F%B7%E5%BC%80%E5%8F%91/</guid>
-        
-        <category>微信应用号</category>
-        
-        <category>前端</category>
-        
-        
-        <category>前端</category>
-        
-      </item>
     
       <item>
         <title>html文件直传到S3</title>
@@ -1311,6 +1075,38 @@ $(&quot;body&quot;).html(viewObj.$el);
         <category>调试</category>
         
         <category>微信</category>
+        
+        
+        <category>前端</category>
+        
+      </item>
+    
+      <item>
+        <title>chrome插件开发</title>
+        <description>&lt;p&gt;之前因为公司业务的需求，阉割了在web端的账号密码登录流程，只能通过发送短信验证码的方式来登录，尽管如此，原来老的登录接口还在。为了提高开发效率，特别是在测试环节，开发了一个chrome插件来继续使用老版的接口来实现用户的帐号密码登录&lt;/p&gt;
+
+&lt;h2 id=&quot;chrome-extension&quot;&gt;开发chrome extension的需要知道的基本知识&lt;/h2&gt;
+&lt;p&gt;chrome插件是主要用三部分构成&lt;/p&gt;
+
+&lt;p&gt;*.浏览器地址栏右侧图标点击弹出的窗口页
+*.运行在后台的脚本文件
+*.嵌入到当前访问页的脚本文件&lt;/p&gt;
+
+&lt;p&gt;三个部分可通过chrome对象方法进行通信&lt;/p&gt;
+
+&lt;h2 id=&quot;mainfest&quot;&gt;mainfest配置文件&lt;/h2&gt;
+&lt;p&gt;首先创建一个文件夹，用于存放当前插件，然后创建一个mainfest.json文件
+该文件主要是像chrome浏览器解释该插件需要哪些依赖
+…..算了，先不写了，好困，下次再写吧
+..这篇比较长,先放着呢,嗯&lt;/p&gt;
+</description>
+        <pubDate>Thu, 12 May 2016 21:13:12 +0800</pubDate>
+        <link>http://chenbingshu.com///2016/chrome%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/</link>
+        <guid isPermaLink="true">http://chenbingshu.com///2016/chrome%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/</guid>
+        
+        <category>chrome插件</category>
+        
+        <category>开发</category>
         
         
         <category>前端</category>
