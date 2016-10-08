@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="baidu-site-verification" content="z5y1bbeVt3" />
+
+  <title>html文件直传到S3</title>
+  <meta name="description" content="Curtis's Blog">
+  <meta name="author" content="Curtis">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="I'm Curtis">
+  <meta name="twitter:description" content="Curtis's Blog">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="I'm Curtis">
+  <meta property="og:description" content="Curtis's Blog">
+
+  <link rel="apple-touch-icon" sizes="128x128" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" href="/images/favicon.ico" sizes="128x128">
+  <link rel="shortcut icon" href="/images/favicon.ico">
+  <meta name="msapplication-TileColor" content="#ffc40d">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://chenbingshu.com///2016/html%E6%96%87%E4%BB%B6%E7%9B%B4%E4%BC%A0%E5%88%B0S3/">
+  <link rel="alternate" type="application/rss+xml" title="I'm Curtis" href="/feed.xml">
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0ad100df223af93e1a79ca65ad3a8c88";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+
+</head>
+
+
+  <body>
+    <span class="mobile btn-mobile-menu">
+  <i class="icon icon-list btn-mobile-menu__icon"></i>
+  <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+</span>
+  
+<header class="panel-cover" style="background-position: center center;background-image: url('http://xurtis.com/bing.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+        <a href="/" title="link to home of I'm Curtis">
+          <img src="/images/profile.png" class="user-image" alt="My Profile Photo">
+          <h1 class="panel-cover__title panel-title">Curtis</h1>
+          <span>Coding with headphones on</span>
+        </a>
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description js_des_under_user"></p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="link to I'm Curtis blog" class="blog-button">首页</a></li>
+            </ul>
+          </nav>
+
+          <nav class="cover-navigation navigation--social">
+            <ul class="navigation">
+          
+            
+              <!-- Twitter -->
+              <li class="navigation__item">
+                <a href="http://twitter.com/Curtis_CBS" title="@Curtis_CBS on Twitter" target="_blank">
+                  <i class="icon icon-social-twitter"></i>
+                  <span class="label">Twitter</span>
+                </a>
+              </li>
+            
+
+            
+              <!-- Facebook -->
+              <li class="navigation__item">
+                <a href="http://fb.me/CurtisCBS" title="CurtisCBS on Facebook" target="_blank">
+                  <i class="icon icon-social-facebook"></i>
+                  <span class="label">Facebook</span>
+                </a>
+              </li>
+            
+
+            
+              <!-- LinkedIn -->
+              <li class="navigation__item">
+                <a href="https://github.com/CurtisCBS/CurtisCBS.github.io/issues" title="comment" target="_blank">
+                  <i class="icon icon-comment"></i>
+                  <span class="label">Comment</span>
+                </a>
+              </li>
+            
+
+            
+              <!-- GitHub -->
+              <li class="navigation__item">
+                <a href="https://www.github.com/CurtisCBS" title="CurtisCBS on GitHub" target="_blank">
+                  <i class="icon icon-social-github"></i>
+                  <span class="label">GitHub</span>
+                </a>
+              </li>
+            
+
+            
+              <!-- Email -->
+              <li class="navigation__item">
+                <a href="mailto:477623879@qq.com" title="Email 477623879@qq.com" target="_blank">
+                  <i class="icon icon-mail"></i>
+                  <span class="label">Email</span>
+                </a>
+              </li>
+            
+
+            <!-- 推荐阅读 -->
+            <li class="navigation__item">
+              <a href="http://chenbingshu.com/2016/%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB/" title="推荐阅读" target="_blank">
+                <i class="icon icon-book"></i>
+                <span class="label">RSS</span>
+              </a>
+            </li>
+          
+            </ul>
+          </nav>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <article class="post-container post-container--single">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="29 Jul 2016" class="post-meta__date date">29 Jul 2016</time> &#8226; <span class="post-meta__tags">keywords: [ <a href="/tags/#文件">文件</a> , <a href="/tags/#直传">直传</a> , <a href="/tags/#aws">aws</a> , <a href="/tags/#s3">s3</a> ,  ]</span>
+    </div>
+    <h1 class="post-title">html文件直传到S3</h1>
+  </header>
+
+  <section class="post">
+    <p>主要实现:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>html文件拖拽上传
+
+文件上传到aws.s3
+</code></pre>
+</div>
+
+<h2 id="html">html文件拖拽上传</h2>
+
+<p>drop是html5的新特性,详情看<a href="http://www.w3school.com.cn/html5/html_5_draganddrop.asp">W3SCHOOL介绍</a></p>
+
+<p>可以通过元素监听drop事件,获取到拖动到容器中的文件对象数组</p>
+
+<p>首先要先阻止document默认监听事件</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$(document).on({
+    dragleave:function(e){
+        e.preventDefault();
+    },
+    drop:function(e){
+        e.preventDefault();
+    },
+    dragenter:function(e){
+        e.preventDefault();
+    },
+    dragover:function(e){
+        e.preventDefault();
+    }
+});
+</code></pre>
+</div>
+
+<p>之后监听文件放置容器的drop事件</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code> var dragContainer = $("#dropContainer")[0];
+ dragContainer.addEventListener("drop",function(e){
+    e.preventDefault(); //取消默认浏览器拖拽效果
+    var fileList = e.dataTransfer.files; //获取文件对象
+	var ImageList = {};
+	if(fileList.length == 0){
+	    console.log('no file added!');
+	    return false;
+	}
+	//file filter
+	for(var i = 0 , j = 0 ; i &lt; fileList.length ; i++ ){
+	    if(fileList[i].type.indexOf('image') === -1){
+	        delete fileList[i];
+	    }
+	    else{
+	        ImageList[j++] = fileList[i];
+	    }
+	}
+
+	for(var key in ImageList){
+	    if(ImageList[key].size/1024 &gt; that.getLimitSize()){
+	        delete ImageList[key];
+	    }
+	    else{
+		    that.appendUploadQueue(ImageList[key]);
+	    }
+	}
+	// that.appendUploadQueue(ImageList);
+	},false);
+</code></pre>
+</div>
+
+<p>首先同样是阻止默认事件的执行。</p>
+
+<p>通过event.dataTransfer.files可以获取到通过前端拖拽到容器的文件对象数组</p>
+
+<p>上面做了两个过滤,一个是文件类型非图片的过滤,一个是文件尺寸太大的过滤</p>
+
+<p>通过数据处理塞选可用的文件。</p>
+
+<p>appendUploadQueue是处理文件上传队列的方法</p>
+
+<h2 id="awss3">使用aws.s3需要了解的相关知识。</h2>
+
+<p>aws:Amazon Web Services</p>
+
+<p>s3:aws的一种,全称叫Simple Storage Service</p>
+
+<p>bucket:中文翻译叫存储桶。Amazon S3 存储桶名称在全球是唯一的（无论是在哪个 AWS 区域中创建存储桶）。在创建存储桶时指定名称。</p>
+
+<p>region:地区。我大中华地区只有一个节点(cn-north-1)。<a href="https://docs.aws.amazon.com/zh_cn/general/latest/gr/rande.html#s3_region">节点列表</a></p>
+
+<p>Access Key ID:相当于账号;</p>
+
+<p>Secret Access Key:相当于密码;</p>
+
+<p>key:很多地方都有key,大部分指的是文件名。。。。吧</p>
+
+<hr />
+
+<p>常用于文件存储(应该是)</p>
+
+<p>html文件直传用的是aws提供的<a href="http://docs.amazonaws.cn/en_us/AWSJavaScriptSDK/guide/browser-intro.html">javascriptSDK</a></p>
+
+<p>首先需要设置当前的账号密码,也就是上面提到的Access Key ID和Secret Access Key</p>
+
+<p>这里做了全局的配置</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>    AWS.config.update({
+		accessKeyId: that.ACCESS_KEY_ID,
+		secretAccessKey: that.SECRECT_ACCESS_KEY
+	});
+	AWS.config.region = that.REGION;
+</code></pre>
+</div>
+
+<p>下面是上面提到的appendUploadQueue方法的实现</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>   var params = {
+	    Key: that.getFullStorePath() +"/"+that.getTimeString()+file.name,
+	    ContentType: file.type,
+	    Body: file,
+	    ACL:"public-read"
+	};
+    (new AWS.S3({params: {Bucket: that.BUCKET}})).upload(params, function (err, originData) {
+	    // results.innerHTML = err ? 'ERROR!' : 'UPLOADED.';
+		if(err){
+			console.log(err);
+			alert('上传出错');
+		}
+		else{
+			if(that.settings.complete){
+				var data = originData;
+				data.Location = that.CDN_URL_PATH + data.Location.split("amazonaws.com.cn/")[1];
+				that.settings.complete &amp;&amp; that.settings.complete(data);
+        		that.appendThumbnail(data);
+			}
+		}
+	});
+</code></pre>
+</div>
+
+<p>需要注意的是,文件同名是会覆盖掉之前的文件的,可以通过配置选项来实现可同名存在。</p>
+
+<p>上面是通过加了时间字符串来做到文件名的唯一性。</p>
+
+<p>Body是上传文件的主要内容。</p>
+
+<p>ACL是文件上传之后的权限。<a href="https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/dev/acl-overview.html">这里是权限表</a></p>
+
+<p>*用户在请求上传成功返回资源的Location报xml access denied一般是acl未设置正确。</p>
+
+<p>*upload请求错误一般是s3服务器xml跨域未配置允许域和put请求</p>
+
+  </section>
+  
+</article>
+
+
+
+      </div>
+
+      <footer class="footer">
+  <span class="footer__copyright">&copy; 2016 Curtis. All rights reserved.</span>
+</footer> 
+
+<script type="text/javascript" src="/js/3rd/jquery.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+    </div>
+  </body>
+</html>
