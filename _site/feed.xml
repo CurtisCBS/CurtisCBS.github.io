@@ -5,8 +5,8 @@
     <description>Curtis&#39;s Blog</description>
     <link>http://chenbingshu.com///</link>
     <atom:link href="http://chenbingshu.com///feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 08 Oct 2016 20:21:03 +0800</pubDate>
-    <lastBuildDate>Sat, 08 Oct 2016 20:21:03 +0800</lastBuildDate>
+    <pubDate>Sat, 08 Oct 2016 20:21:58 +0800</pubDate>
+    <lastBuildDate>Sat, 08 Oct 2016 20:21:58 +0800</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -1097,6 +1097,8 @@ $(&quot;body&quot;).html(viewObj.$el);
 *.嵌入到当前访问页的脚本文件&lt;/p&gt;
 
 &lt;p&gt;三个部分可通过chrome对象方法进行通信&lt;/p&gt;
+
+&lt;p&gt;?&lt;/p&gt;
 
 &lt;h2 id=&quot;mainfest&quot;&gt;mainfest配置文件&lt;/h2&gt;
 &lt;p&gt;首先创建一个文件夹，用于存放当前插件，然后创建一个mainfest.json文件
