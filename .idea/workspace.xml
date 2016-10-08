@@ -161,7 +161,7 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="js.eslint.nodeInterpreter" value="/usr/local/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/www" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="SearchEverywhereHistoryKey" value="main&#9;FILE&#9;file:///Users/linqu/CurtisCBS/js/main.js&#10;mstile-144x144.png&#9;FILE&#9;file:///Users/bingshu/CurtisCBS/images/favicons/mstile-144x144.png&#10;favicons/apple-touch-icon-57x57.png&#9;FILE&#9;file:///Users/bingshu/CurtisCBS/images/favicons/apple-touch-icon-57x57.png" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
@@ -328,12 +328,12 @@
       <workItem from="1474873447481" duration="23000" />
       <workItem from="1475919807084" duration="2000" />
       <workItem from="1475919826493" duration="542000" />
-      <workItem from="1475920459178" duration="222000" />
+      <workItem from="1475920459178" duration="965000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64327000" />
+    <option name="totallyTimeSpent" value="65070000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="346" y="23" width="1280" height="731" extended-state="0" />
