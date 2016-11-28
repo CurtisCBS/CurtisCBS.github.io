@@ -37,11 +37,14 @@
   (function() {
     var hm = document.createElement("script");
     hm.src = "//hm.baidu.com/hm.js?0ad100df223af93e1a79ca65ad3a8c88";
-    var s = document.getElementsByTagName("script")[0]; 
+    var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(hm, s);
   })();
   </script>
-
+  <script>
+    ga('create', 'UA-88099437-1', 'auto');
+    ga('send', 'pageview');
+  </script>
 </head>
 
 
@@ -266,10 +269,12 @@ var server = app.listen(3000, function () {
 
       <footer class="footer">
   <span class="footer__copyright">&copy; 2016 Curtis. All rights reserved.</span>
-</footer> 
+</footer>
 
 <script type="text/javascript" src="/js/3rd/jquery.min.js"></script>
 <script type="text/javascript" src="/js/main.js"></script>
+<script type="text/javascript" src="/js/analytics.js"
+
     </div>
   </body>
 </html>
