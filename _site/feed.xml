@@ -5,9 +5,98 @@
     <description>Curtis&#39;s Blog</description>
     <link>http://chenbingshu.com///</link>
     <atom:link href="http://chenbingshu.com///feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 28 Nov 2016 16:19:14 +0800</pubDate>
-    <lastBuildDate>Mon, 28 Nov 2016 16:19:14 +0800</lastBuildDate>
+    <pubDate>Mon, 28 Nov 2016 17:58:57 +0800</pubDate>
+    <lastBuildDate>Mon, 28 Nov 2016 17:58:57 +0800</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
+    
+      <item>
+        <title>轻松在服务器搭建shadowsocks</title>
+        <description>&lt;p&gt;对于码农，需要经常翻*墙查bug，看文档。如果自己去购买vpn服务，一年差不多也要一百来块。如果自己买个国外的服务器也贵不了多少。而且自己还能在服务器上搞点东西玩玩。对于大部分新手，bandwagon上的服务器还是比较便宜的。能满足大部分人的需求。最便宜只要3美刀一个月，一顿饭的钱。&lt;a href=&quot;https://bandwagonhost.com/aff.php?aff=9537&quot;&gt;bandwagon服务器购买链接&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;shadowsocks&quot;&gt;shadowsocks一句话简介&lt;/h2&gt;
+
+&lt;p&gt;shadowsocks是开源socks5 proxy(以下简称ss),作者是个中国人&lt;a href=&quot;https://github.com/clowwindy&quot;&gt;clowwindy&lt;/a&gt; ，自己去网站购买服务的话，个人服务是16美刀&lt;a href=&quot;https://shadowsocks.com/&quot;&gt;链接&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h2 id=&quot;ss&quot;&gt;如何服务器上搭建一个ss服务器呢?&lt;/h2&gt;
+
+&lt;p&gt;Debian/Ubuntu系统&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install python-pip python-m2crypto
+sudo pip install shadowsocks
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;CentOS/RHEL系统&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum install m2crypto python-setuptools
+sudo easy_install pip
+sudo pip install shadowsocks
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;创建一个ss的配置文件&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo vi /home/ss.json
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;把下面的内容拷贝到ss.json文件&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;server&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;服务器ip&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;server_port&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;服务端口&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;local_port&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1080&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;password&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;密码&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;timeout&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;method&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;aes-256-cfb&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;其中上面的服务器ip需要根据自己当前服务器的ip来设置，服务端口,密码可以随意设置，如果local_port在启动时报端口占用，可以改成其他未被占用的端口。method是加密编码方法,有如下“bf-cfb”, “aes-256-cfb”, “des-cfb”, “rc4”等，推荐上述的aes-256-cfb方法加密。&lt;/p&gt;
+
+&lt;p&gt;启动服务&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo ssserver -c /home/ss.json -d start
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;关闭服务&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo ssserver -d stop
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;重启服务&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo ssserver -c /etc/shadowsocks.json -d restart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;日志存放位置&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/var/log/shadowsocks.log
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;执行启动服务命令行后，一个ss服务就起好了&lt;/p&gt;
+
+&lt;p&gt;接下来用户根据自己的操作系统下载对应的&lt;a href=&quot;https://shadowsocks.org/en/download/clients.html&quot;&gt;gui客户端&lt;/a&gt;,然后填入对应的参数就可以了。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/post/20161128/ss.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 25 Nov 2016 16:00:00 +0800</pubDate>
+        <link>http://chenbingshu.com///2016/%E8%BD%BB%E6%9D%BE%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BAshadowsocks/</link>
+        <guid isPermaLink="true">http://chenbingshu.com///2016/%E8%BD%BB%E6%9D%BE%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BAshadowsocks/</guid>
+        
+        <category>centos</category>
+        
+        <category>翻墙</category>
+        
+        
+        <category>前端</category>
+        
+      </item>
     
       <item>
         <title>初探自动捕获网页中的异常报错</title>
@@ -1065,108 +1154,6 @@ $(&quot;body&quot;).html(viewObj.$el);
         <category>view</category>
         
         <category>开发</category>
-        
-        
-        <category>前端</category>
-        
-      </item>
-    
-      <item>
-        <title>移动web开发者常用调试方法</title>
-        <description>&lt;p&gt;移动web前端开发者经常会需要解决ios和安卓平台的兼容问题(主要还是安卓,嗯,没错)&lt;/p&gt;
-
-&lt;p&gt;如果不能连接真机调试的话,一些比较奇葩的样式或缓存问题就需要开发者有足够的经验才能定位到问题;但是如果&lt;/p&gt;
-
-&lt;p&gt;能通过wifi或usb连接电脑直接调试,就相对容易定位到问题。(文章开头真难写)&lt;/p&gt;
-
-&lt;p&gt;这里主要介绍几种调试方法&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;ios + safari(mac)&lt;/li&gt;
-  &lt;li&gt;android + chrome&lt;/li&gt;
-  &lt;li&gt;微信调试&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;iossafari-&quot;&gt;IOS+Safari 调试方法&lt;/h2&gt;
-&lt;p&gt;iso＋safari，两个苹果的亲儿子
-/Users/bingshu/CurtisCBS/_posts/2016-05-12-chrome插件开发.md
-首先打开ios的 设置－safari－高级－web检查器&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/post/20150529/ios-setting.PNG&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;把如上图的设置好之后，使用usb链接mac&lt;/p&gt;
-
-&lt;p&gt;打开电脑的safari&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/post/20150529/mac-safari.PNG&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;safari的菜单栏－开发 就能看到链接的手机以及当前手机打开的网页&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/post/20150529/safari-debug.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;*缺点：只有当ios的safari等少部分支持的浏览器中打开支持这种调试方法，如微信和应用内webview很多都&lt;/p&gt;
-
-&lt;p&gt;不支持这样调试，不过本人比较常用这种方法&lt;/p&gt;
-
-&lt;h2 id=&quot;android--chrome&quot;&gt;android + chrome&lt;/h2&gt;
-&lt;p&gt;android(据说需要版本4.0以上)的调试方法首先需要将android机器设置到开发者模式&lt;/p&gt;
-
-&lt;p&gt;方法：&lt;/p&gt;
-
-&lt;p&gt;好像是 打开设置－关于本机－安卓版本号，然后连续点击七次（谁能解释一下为什么要点击七次吗？）&lt;/p&gt;
-
-&lt;p&gt;然后返回上一界面，就应该能看到有个开发者模式&lt;/p&gt;
-
-&lt;p&gt;点击进入，把usb调试的选项钩上&lt;/p&gt;
-
-&lt;p&gt;然后链接usb到电脑&lt;/p&gt;
-
-&lt;p&gt;电脑打开chrome浏览器&lt;/p&gt;
-
-&lt;p&gt;在地址栏上输入 chrome://inspect/#devices&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/post/20150529/chrome-debug.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;我手上也没有安卓真机，没法截图&lt;/p&gt;
-
-&lt;p&gt;在安卓机上的浏览器打开网页，如上图就有手机当前打开网页的选项&lt;/p&gt;
-
-&lt;p&gt;可以通过点击选项的inspect按钮，打开调试&lt;/p&gt;
-
-&lt;p&gt;接下来的调试方法就和在chrome打开网页的调试方法一样了&lt;/p&gt;
-
-&lt;h2 id=&quot;section&quot;&gt;微信调试&lt;/h2&gt;
-&lt;p&gt;微信调试通过下载是微信官方提供给微信web开发者的调试应用来实现的&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/wiki/10/e5f772f4521da17fa0d7304f68b97d7e.html&quot;&gt;微信web开发者工具下载传送们&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/post/20150529/wx-download.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;下载之后打开应用,会需要开发者先扫描登录&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/post/20150529/weixin-web-debug.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;选择平台（ios，android）之后，会有提示需要手机和电脑在同一内网，然后设置wifi的http代理&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/post/20150529/wifi-http.PNG&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;设置好后重新打开微信，在微信内打开需要调试的网页，可在调试工具的主界面看到出现了打开的网页&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/post/20150529/weixin-debugger.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;点击要调试的网页，即可进入调试模式&lt;/p&gt;
-
-&lt;p&gt;*缺点：丑。还有样式调试也是相当难，给元素增改样式很麻烦&lt;/p&gt;
-</description>
-        <pubDate>Sun, 29 May 2016 01:33:11 +0800</pubDate>
-        <link>http://chenbingshu.com///2016/%E7%A7%BB%E5%8A%A8web%E5%BC%80%E5%8F%91%E8%80%85%E5%B8%B8%E7%94%A8%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95/</link>
-        <guid isPermaLink="true">http://chenbingshu.com///2016/%E7%A7%BB%E5%8A%A8web%E5%BC%80%E5%8F%91%E8%80%85%E5%B8%B8%E7%94%A8%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95/</guid>
-        
-        <category>移动web</category>
-        
-        <category>调试</category>
-        
-        <category>微信</category>
         
         
         <category>前端</category>
