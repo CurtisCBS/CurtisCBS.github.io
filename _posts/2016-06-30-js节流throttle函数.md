@@ -18,8 +18,7 @@ tags: [throttle,节流]
 
 在前端实现节流函数一般是使用定时器实现
 
-最简单的节流函数
----
+### 最简单的节流函数
 
     function throttle(){
         if(timer){
@@ -30,8 +29,7 @@ tags: [throttle,节流]
 
 这是最简单的节流函数。通过判断是否已经存在定时器,过滤掉用户之前的操作,直到delay计时完才进行函数执行
 
-underscore的throttle
----
+### underscore的throttle
 
 underscore是一个又好又快又小的库,快主要是因为他是采用函数式编程(来源于一位老师的话)
 
@@ -46,8 +44,7 @@ window的resize和scroll都是会频繁触犯事件的。
 
 所以通过throttle函数加以过滤可以大大提高渲染性能
 
-vue的debounce
----
+### vue的debounce
 
 vue框架自带的input的debounce实现也是节流函数的一种。([文档](https://vuejs.org/guide/forms.html#debounce))
 

@@ -7,13 +7,11 @@ tags: [centos,翻墙]
 
 对于码农，需要经常翻*墙查bug，看文档。如果自己去购买vpn服务，一年差不多也要一百来块。如果自己买个国外的服务器也贵不了多少。而且自己还能在服务器上搞点东西玩玩。对于大部分新手，bandwagon上的服务器还是比较便宜的。能满足大部分人的需求。最便宜只要3美刀一个月，一顿饭的钱。[bandwagon服务器购买链接](https://bandwagonhost.com/aff.php?aff=9537)
 
-shadowsocks一句话简介
----
+### shadowsocks一句话简介
 
 shadowsocks是开源socks5 proxy(以下简称ss),作者是个中国人[clowwindy](https://github.com/clowwindy) ，自己去网站购买服务的话，个人服务是16美刀[链接](https://shadowsocks.com/)。
 
-如何服务器上搭建一个ss服务器呢?
----
+### 如何服务器上搭建一个ss服务器呢?
 
 Debian/Ubuntu系统
 

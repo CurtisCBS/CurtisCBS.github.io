@@ -13,12 +13,11 @@ tags: [node,github,webhook,forever]
 
 所以就在服务器端搭了个node服务器,弄个请求专门来监听github的代码提交纪录,并作服务器端的代码更新
 
-work flow
----
+### work flow
+
 git本地代码提交(push) -> github webhook通知服务器 -> 服务器接收请求并执行代码更新(pull)
 
-github webhook
----
+### github webhook
 
 github webhook是在你的仓库(repository)发生变动的时候,通知你的服务器,一个仓库
 
@@ -34,8 +33,7 @@ github webhook是在你的仓库(repository)发生变动的时候,通知你的�
 
 ![image]({{"images/post/20160721/webhook-config.png" | prepend: site.baseurl }})
 
-服务器端监听通知
----
+### 服务器端监听通知
 
 首先要在服务端上搭建一个node服务器,我是用express框架起了了一个服务器。
 
@@ -71,8 +69,7 @@ exec用于通过让子进程执行某个命令(这里执行的是切换分支和
 
 这样,接下来只要在服务端运行该node服务就行了
 
-forever
----
+### forever
 
 如何让服务器一只运行node服务器?
 

@@ -12,8 +12,7 @@ tags: [webVR,js,threejs]
 
 最近几天在看threejs,看着别人的教程,顺便依赖VRControl写了个[demo](http://xurtis.com/webVR/index.html)
 
-three.scene
----
+### three.scene
 
 使用threejs实现各种动画效果,主要是通过三个部分:场景,镜头,渲染器(难道这就是叫three的原因???)
 
@@ -68,8 +67,8 @@ Mesh是将MeshBasicMaterial的材质渲染到BoxGeometry生成的立方体上,�
 
 如同上面的修改camera.position.z的值一样,修改camera.position改变的是视图角度的位置
 
-矩阵变换(Matrix transformations)
----
+### 矩阵变换(Matrix transformations)
+
 threejs使用矩阵来实现3D动画的变化.每个Object3D对象都有一个matrix,存储包含位置,旋转,缩放等数据
 
 实现3D变化的方法有两种:
@@ -108,8 +107,7 @@ O3D的matrixAutoUpdate默认为true,所以使用方法改变了matrix的值,就�
 
 threejs使用了如上两种听起来很高端听都没听过的方法来表示3d旋转
 
-材质(texture)
----
+### 材质(texture)
 
 上面的例子创建了一个立方体,现在来实现材质渲染
 
@@ -134,8 +132,7 @@ threejs使用了如上两种听起来很高端听都没听过的方法来表示3
 
 **open /Applications/Google\ Chrome.app --args --allow-file-access-from-files**
 
-VRControl
----
+### VRControl
 
 VRControls是threejs研发团队写的实现vr的依赖
 
