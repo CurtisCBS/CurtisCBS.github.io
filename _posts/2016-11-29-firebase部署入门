@@ -1,5 +1,5 @@
 ---
-title:  "firebase入门(一)"
+title:  "firebase部署入门"
 date:   2016-11-29 17:27:00 +0800
 categories: [数据库]
 tags: [firebase,数据库,教程]
@@ -7,6 +7,24 @@ tags: [firebase,数据库,教程]
 
 ##一句话简介
 Firebase 是一个移动平台，可以帮助您快速开发高品质应用，扩大用户群，并赚取更多收益。Firebase 由多种互补功能组成，您可以自行组合和匹配这些功能以满足自己的需求。
+
+##新建项目
+1.到firebase网站新建一个工程[https://console.firebase.google.com/?hl=zh-cn](https://console.firebase.google.com/?hl=zh-cn)
+
+2.创建完工程后在项目页面加入如下代码就可以将firebase加入到你的web应用了
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "api-key",
+        authDomain: "auth-domain",
+        databaseURL: "database-url",
+        storageBucket: "storage-bucket",
+        messagingSenderId: "messaging-sender-id"
+      };
+      firebase.initializeApp(config);
+    </script>
 
 ##环境安装
 1.确保计算机已经安装node环境 [node下载连接](https://nodejs.org/en/download/)
@@ -35,4 +53,12 @@ Firebase 是一个移动平台，可以帮助您快速开发高品质应用，�
 
 ![image]({{"images/post/20161129/firebase-init.png" | prepend: site.baseurl }})
 
-firebase init 命令不创建新目录。如果从头开始创建新项目，则应先创建目录，并在运行 init 命令之前更改项目目录。
+通过space选择要初始化的类型。hosting用于部署静态资源，database用于实时数据库
+
+`firebase init 命令不创建新目录。如果从头开始创建新项目，则应先创建目录，并在运行 init 命令之前更改项目目录。`
+
+5.部署firebase
+
+    firebase deploy
+
+部署完就能通过终端上的URL进行访问
