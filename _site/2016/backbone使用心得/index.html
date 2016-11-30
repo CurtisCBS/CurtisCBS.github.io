@@ -160,11 +160,12 @@
   <section class="post">
     <p>从实习工作到现在已经一年多，公司web前端的客户端主要框架是backbone＋underscore＋artTemplate+jquery libs。经历了从混合着服务端语法到前端完全分离的开发模式。在项目重构中主要负责购物流程和订单这一块，虽然也意识到backbone这种mvc的短板。但是作为经典的前端mvc框架，还是很有必要学习了解一下</p>
 
-<h2 id="backbone">backbone简介</h2>
+<h3 id="backbone">backbone简介</h3>
 
 <p>经典的前端mvc框架( <a href="http://http://backbonejs.org/">backbone官网</a> , <a href="http://www.css88.com/doc/backbone/">中文文档</a> ),主要给开发者提供了model，view，collection等结构，并提供丰富的事件机制及route功能</p>
 
-<h2 id="model">model</h2>
+<h3 id="model">model</h3>
+
 <p>主要用于数据交互和业务逻辑处理，开发者一般是从backbone.model继承</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>var model = Backbone.Model.extend({
@@ -172,7 +173,7 @@
 		name:'curtis'
 	},
 	initialize:function(){
-		
+
 	}
 })
 </code></pre>
@@ -187,16 +188,17 @@ model1.get('name');
 
 <p>下面会讲到model和view的结合使用</p>
 
-<h2 id="modelgetset">model的get和set方法</h2>
+<h3 id="modelgetset">model的get和set方法</h3>
 
 <p>get：获取当前model某属性的值</p>
 
 <p>set：设置当前model某个属性的值，可以单个属性，也可以为一个json对象,设置了属性值之后会触发change事件，可通过设置view来监听model某属性来驱动视图进行更新</p>
 
-<h2 id="initialize">initialize</h2>
+<h3 id="initialize">initialize</h3>
+
 <p>view对象的构造函数,即实例化对象的时候调用</p>
 
-<h2 id="view">view</h2>
+<h3 id="view">view</h3>
 
 <p>于2016.06.29继续写了</p>
 
@@ -206,7 +208,7 @@ model1.get('name');
 
 <p>反而使得框架接口变得复杂</p>
 
-<h2 id="events">events</h2>
+<h3 id="events">events</h3>
 
 <p>events主要是绑定了当前模块试图的一些绑定事件,使用方法如下:</p>
 
@@ -224,10 +226,11 @@ model1.get('name');
 </code></pre>
 </div>
 
-<h2 id="initialize-1">initialize</h2>
+<h3 id="initialize-1">initialize</h3>
+
 <p>view对象的构造函数,即实例化对象的时候调用</p>
 
-<h2 id="el">el</h2>
+<h3 id="el">el</h3>
 
 <p>backboneView的一个重要属性,el是当前模块对应的dom元素,</p>
 

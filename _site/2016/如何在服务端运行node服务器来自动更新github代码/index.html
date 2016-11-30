@@ -166,10 +166,11 @@
 
 <p>所以就在服务器端搭了个node服务器,弄个请求专门来监听github的代码提交纪录,并作服务器端的代码更新</p>
 
-<h2 id="work-flow">work flow</h2>
+<h3 id="work-flow">work flow</h3>
+
 <p>git本地代码提交(push) -&gt; github webhook通知服务器 -&gt; 服务器接收请求并执行代码更新(pull)</p>
 
-<h2 id="github-webhook">github webhook</h2>
+<h3 id="github-webhook">github webhook</h3>
 
 <p>github webhook是在你的仓库(repository)发生变动的时候,通知你的服务器,一个仓库</p>
 
@@ -185,7 +186,7 @@
 
 <p><img src="/images/post/20160721/webhook-config.png" alt="image" /></p>
 
-<h2 id="section">服务器端监听通知</h2>
+<h3 id="section">服务器端监听通知</h3>
 
 <p>首先要在服务端上搭建一个node服务器,我是用express框架起了了一个服务器。</p>
 
@@ -223,7 +224,7 @@ var server = app.listen(3000, function () {
 
 <p>这样,接下来只要在服务端运行该node服务就行了</p>
 
-<h2 id="forever">forever</h2>
+<h3 id="forever">forever</h3>
 
 <p>如何让服务器一只运行node服务器?</p>
 

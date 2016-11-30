@@ -162,7 +162,7 @@
 
 <p>这个webapi可能会起到效果</p>
 
-<h2 id="notification">Notification</h2>
+<h3 id="notification">Notification</h3>
 
 <p>Web Notifications API 使页面可以发出通知，通知将被显示在页面之外的系统层面上（通常使用操作系统的标准通知机制，但是在不同的平台和浏览器上的表现会有差异）。这个功能使  web 应用可以向用户发送信息，即使应用处于空闲状态。最明显的用例之一是一个网页版电子邮件应用程序，每当用户收到了一封新的电子邮件都需要通知用户，即使用户正在使用另一个应用程序。</p>
 
@@ -170,7 +170,7 @@
 
 <p>tower就是通过这个接口像用户发送通知消息的。</p>
 
-<h2 id="section">权限</h2>
+<h3 id="section">权限</h3>
 
 <p>使用Notification接口时需要像用户发送授权请求(如获取用户地址位置信息等需要用户隐私的接口都需要用户授权)</p>
 
@@ -190,7 +190,8 @@
 
 <p>*denied表示用户拒绝接受通知</p>
 
-<h2 id="notification-1">Notification对象</h2>
+<h3 id="notification-1">Notification对象</h3>
+
 <div class="highlighter-rouge"><pre class="highlight"><code>  var notification = new Notification(title,{
     body:string,
     icon:imageUrl
@@ -204,7 +205,7 @@
 
 <p><img src="/images/post/20160701/notification.png" alt="image" /></p>
 
-<h2 id="section-1">回调函数</h2>
+<h3 id="section-1">回调函数</h3>
 
 <p>notification有4个回调函数</p>
 

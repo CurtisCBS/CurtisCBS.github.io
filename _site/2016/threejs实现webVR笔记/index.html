@@ -164,7 +164,7 @@
 
 <p>最近几天在看threejs,看着别人的教程,顺便依赖VRControl写了个<a href="http://xurtis.com/webVR/index.html">demo</a></p>
 
-<h2 id="threescene">three.scene</h2>
+<h3 id="threescene">three.scene</h3>
 
 <p>使用threejs实现各种动画效果,主要是通过三个部分:场景,镜头,渲染器(难道这就是叫three的原因???)</p>
 
@@ -227,7 +227,8 @@ render();
 
 <p>如同上面的修改camera.position.z的值一样,修改camera.position改变的是视图角度的位置</p>
 
-<h2 id="matrix-transformations">矩阵变换(Matrix transformations)</h2>
+<h3 id="matrix-transformations">矩阵变换(Matrix transformations)</h3>
+
 <p>threejs使用矩阵来实现3D动画的变化.每个Object3D对象都有一个matrix,存储包含位置,旋转,缩放等数据</p>
 
 <p>实现3D变化的方法有两种:</p>
@@ -269,7 +270,7 @@ cube.matrix.setPosition(start_position);
 
 <p>threejs使用了如上两种听起来很高端听都没听过的方法来表示3d旋转</p>
 
-<h2 id="texture">材质(texture)</h2>
+<h3 id="texture">材质(texture)</h3>
 
 <p>上面的例子创建了一个立方体,现在来实现材质渲染</p>
 
@@ -298,7 +299,7 @@ loader.load('texture.png', textureLoad);
 
 <p><strong>open /Applications/Google\ Chrome.app –args –allow-file-access-from-files</strong></p>
 
-<h2 id="vrcontrol">VRControl</h2>
+<h3 id="vrcontrol">VRControl</h3>
 
 <p>VRControls是threejs研发团队写的实现vr的依赖</p>
 

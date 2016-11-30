@@ -5,17 +5,17 @@
     <description>Curtis&#39;s Blog</description>
     <link>http://chenbingshu.com///</link>
     <atom:link href="http://chenbingshu.com///feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 30 Nov 2016 10:30:46 +0800</pubDate>
-    <lastBuildDate>Wed, 30 Nov 2016 10:30:46 +0800</lastBuildDate>
+    <pubDate>Wed, 30 Nov 2016 10:53:12 +0800</pubDate>
+    <lastBuildDate>Wed, 30 Nov 2016 10:53:12 +0800</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
         <title>firebase部署入门</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;一句话简介&lt;/h2&gt;
+        <description>&lt;h3 id=&quot;section&quot;&gt;一句话简介&lt;/h3&gt;
 
 &lt;p&gt;Firebase 是一个移动平台，可以帮助您快速开发高品质应用，扩大用户群，并赚取更多收益。Firebase 由多种互补功能组成，您可以自行组合和匹配这些功能以满足自己的需求。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;新建项目&lt;/h2&gt;
+&lt;h3 id=&quot;section-1&quot;&gt;新建项目&lt;/h3&gt;
 
 &lt;p&gt;1.到firebase网站新建一个工程&lt;a href=&quot;https://console.firebase.google.com/?hl=zh-cn&quot;&gt;https://console.firebase.google.com/?hl=zh-cn&lt;/a&gt;&lt;/p&gt;
 
@@ -36,7 +36,7 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;section-2&quot;&gt;环境安装&lt;/h2&gt;
+&lt;h3 id=&quot;section-2&quot;&gt;环境安装&lt;/h3&gt;
 
 &lt;p&gt;1.确保计算机已经安装node环境 &lt;a href=&quot;https://nodejs.org/en/download/&quot;&gt;node下载连接&lt;/a&gt;&lt;/p&gt;
 
@@ -103,11 +103,11 @@
         <title>轻松在服务器搭建shadowsocks</title>
         <description>&lt;p&gt;对于码农，需要经常翻*墙查bug，看文档。如果自己去购买vpn服务，一年差不多也要一百来块。如果自己买个国外的服务器也贵不了多少。而且自己还能在服务器上搞点东西玩玩。对于大部分新手，bandwagon上的服务器还是比较便宜的。能满足大部分人的需求。最便宜只要3美刀一个月，一顿饭的钱。&lt;a href=&quot;https://bandwagonhost.com/aff.php?aff=9537&quot;&gt;bandwagon服务器购买链接&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;shadowsocks&quot;&gt;shadowsocks一句话简介&lt;/h2&gt;
+&lt;h3 id=&quot;shadowsocks&quot;&gt;shadowsocks一句话简介&lt;/h3&gt;
 
 &lt;p&gt;shadowsocks是开源socks5 proxy(以下简称ss),作者是个中国人&lt;a href=&quot;https://github.com/clowwindy&quot;&gt;clowwindy&lt;/a&gt; ，自己去网站购买服务的话，个人服务是16美刀&lt;a href=&quot;https://shadowsocks.com/&quot;&gt;链接&lt;/a&gt;。&lt;/p&gt;
 
-&lt;h2 id=&quot;ss&quot;&gt;如何服务器上搭建一个ss服务器呢?&lt;/h2&gt;
+&lt;h3 id=&quot;ss&quot;&gt;如何服务器上搭建一个ss服务器呢?&lt;/h3&gt;
 
 &lt;p&gt;Debian/Ubuntu系统&lt;/p&gt;
 
@@ -192,13 +192,13 @@ sudo pip install shadowsocks
         <title>初探自动捕获网页中的异常报错</title>
         <description>&lt;p&gt;由于当前国内测试行业的未技术化，特别是对前端测试的忽略，大多数公司的还是停留在以人力+人肉进行前端的测试，虽然大部分情况下可以暴露出大部分的问题，但是有一些网页的异常报错，测试人员并不会注意到或者没办法还原错误操作和环境等。所以，前端能够通过在自己项目代码里自动监听 -&amp;gt; 捕获 -&amp;gt; 记录 -&amp;gt; 存储到数据库。再通过创建dashboard获取异常数据，就可以实现云异常监控了。&lt;/p&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;解决方案&lt;/h2&gt;
+&lt;h3 id=&quot;section&quot;&gt;解决方案&lt;/h3&gt;
 
 &lt;p&gt;实现异常的监控整体思路:&lt;/p&gt;
 
 &lt;p&gt;通过监听异常，当未达到页面错误记录数时先记录错误日志（此处可以通过throttle函数来优化，防止当页面密集报错时候，频繁请求）。错误日志包含发生的日期，错误类型（runtime或resource）,UA(快速定位错误发生环境),referrer和url(了解用户的操作流程)。当达到错误日志上限或在一段时间内无监测到其他异常错误时候则向服务端发送请求记录该页面错误。&lt;/p&gt;
 
-&lt;h2 id=&quot;javascript-&quot;&gt;javascript 运行时的异常报错监控&lt;/h2&gt;
+&lt;h3 id=&quot;javascript-&quot;&gt;javascript 运行时的异常报错监控&lt;/h3&gt;
 
 &lt;p&gt;runtime error是比较严重的。对于同一段js代码，js报错常常会导致代码的中断且不会再向下执行。所以在测试环境中，大部分的runtime error是会被&lt;/p&gt;
 
@@ -214,7 +214,7 @@ window.onerror = function(messageOrEvent, source, lineno, colno, error)
 
 &lt;p&gt;window.onerror是js运行时错误的一个监听处理函数,当js的语法错误或程序中抛出异常时触发，触发时候会返回一个errorEvent对象。对象包含错误信息，错误的目标来源，行数，列数及错误对象(对象包含堆栈信息)&lt;/p&gt;
 
-&lt;h2 id=&quot;document-&quot;&gt;document 资源加载错误的监控&lt;/h2&gt;
+&lt;h3 id=&quot;document-&quot;&gt;document 资源加载错误的监控&lt;/h3&gt;
 
 &lt;p&gt;页面资源加载失败，是测试环境比较难测试出来的，往往资源加载失败是因为用户网络问题或服务端或cdn服务商的服务问题等。这种问题的环境相对比较难以还原。&lt;/p&gt;
 
@@ -235,7 +235,7 @@ err.target.src可以记录未加载成功资源的资源路径
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;vue&quot;&gt;黑科技—针对vue报错的监控&lt;/h2&gt;
+&lt;h3 id=&quot;vue&quot;&gt;黑科技—针对vue报错的监控&lt;/h3&gt;
 
 &lt;p&gt;因为当前业务基于vue，但由于vue的内部机制，并不能通过以上两种方法获取到它抛出的异常。下面教大家使用黑科技—通过重写console.error方法来达到记录错误日志。&lt;/p&gt;
 
@@ -247,9 +247,9 @@ err.target.src可以记录未加载成功资源的资源路径
     }
   })(console.error);&lt;/p&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;兼容&amp;amp;常见问题&lt;/h2&gt;
+&lt;h3 id=&quot;section-1&quot;&gt;兼容&amp;amp;常见问题&lt;/h3&gt;
 
-&lt;p&gt;##Script error. 无法记录到异常信息&lt;/p&gt;
+&lt;h4 id=&quot;script-error-&quot;&gt;Script error. 无法记录到异常信息&lt;/h4&gt;
 
 &lt;p&gt;1.当页面的js来自cdn，在chrome和firefox无法捕捉到异常信息&lt;/p&gt;
 
@@ -286,7 +286,7 @@ err.target.src可以记录未加载成功资源的资源路径
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;html&quot;&gt;html文件拖拽上传&lt;/h2&gt;
+&lt;h3 id=&quot;html&quot;&gt;html文件拖拽上传&lt;/h3&gt;
 
 &lt;p&gt;drop是html5的新特性,详情看&lt;a href=&quot;http://www.w3school.com.cn/html5/html_5_draganddrop.asp&quot;&gt;W3SCHOOL介绍&lt;/a&gt;&lt;/p&gt;
 
@@ -355,7 +355,7 @@ err.target.src可以记录未加载成功资源的资源路径
 
 &lt;p&gt;appendUploadQueue是处理文件上传队列的方法&lt;/p&gt;
 
-&lt;h2 id=&quot;awss3&quot;&gt;使用aws.s3需要了解的相关知识。&lt;/h2&gt;
+&lt;h3 id=&quot;awss3&quot;&gt;使用aws.s3需要了解的相关知识。&lt;/h3&gt;
 
 &lt;p&gt;aws:Amazon Web Services&lt;/p&gt;
 
@@ -370,8 +370,6 @@ err.target.src可以记录未加载成功资源的资源路径
 &lt;p&gt;Secret Access Key:相当于密码;&lt;/p&gt;
 
 &lt;p&gt;key:很多地方都有key,大部分指的是文件名。。。。吧&lt;/p&gt;
-
-&lt;hr /&gt;
 
 &lt;p&gt;常用于文件存储(应该是)&lt;/p&gt;
 
@@ -454,10 +452,11 @@ err.target.src可以记录未加载成功资源的资源路径
 
 &lt;p&gt;所以就在服务器端搭了个node服务器,弄个请求专门来监听github的代码提交纪录,并作服务器端的代码更新&lt;/p&gt;
 
-&lt;h2 id=&quot;work-flow&quot;&gt;work flow&lt;/h2&gt;
+&lt;h3 id=&quot;work-flow&quot;&gt;work flow&lt;/h3&gt;
+
 &lt;p&gt;git本地代码提交(push) -&amp;gt; github webhook通知服务器 -&amp;gt; 服务器接收请求并执行代码更新(pull)&lt;/p&gt;
 
-&lt;h2 id=&quot;github-webhook&quot;&gt;github webhook&lt;/h2&gt;
+&lt;h3 id=&quot;github-webhook&quot;&gt;github webhook&lt;/h3&gt;
 
 &lt;p&gt;github webhook是在你的仓库(repository)发生变动的时候,通知你的服务器,一个仓库&lt;/p&gt;
 
@@ -473,7 +472,7 @@ err.target.src可以记录未加载成功资源的资源路径
 
 &lt;p&gt;&lt;img src=&quot;/images/post/20160721/webhook-config.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;服务器端监听通知&lt;/h2&gt;
+&lt;h3 id=&quot;section&quot;&gt;服务器端监听通知&lt;/h3&gt;
 
 &lt;p&gt;首先要在服务端上搭建一个node服务器,我是用express框架起了了一个服务器。&lt;/p&gt;
 
@@ -511,7 +510,7 @@ var server = app.listen(3000, function () {
 
 &lt;p&gt;这样,接下来只要在服务端运行该node服务就行了&lt;/p&gt;
 
-&lt;h2 id=&quot;forever&quot;&gt;forever&lt;/h2&gt;
+&lt;h3 id=&quot;forever&quot;&gt;forever&lt;/h3&gt;
 
 &lt;p&gt;如何让服务器一只运行node服务器?&lt;/p&gt;
 
@@ -568,7 +567,7 @@ var server = app.listen(3000, function () {
 
 &lt;p&gt;最近几天在看threejs,看着别人的教程,顺便依赖VRControl写了个&lt;a href=&quot;http://xurtis.com/webVR/index.html&quot;&gt;demo&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;threescene&quot;&gt;three.scene&lt;/h2&gt;
+&lt;h3 id=&quot;threescene&quot;&gt;three.scene&lt;/h3&gt;
 
 &lt;p&gt;使用threejs实现各种动画效果,主要是通过三个部分:场景,镜头,渲染器(难道这就是叫three的原因???)&lt;/p&gt;
 
@@ -631,7 +630,8 @@ render();
 
 &lt;p&gt;如同上面的修改camera.position.z的值一样,修改camera.position改变的是视图角度的位置&lt;/p&gt;
 
-&lt;h2 id=&quot;matrix-transformations&quot;&gt;矩阵变换(Matrix transformations)&lt;/h2&gt;
+&lt;h3 id=&quot;matrix-transformations&quot;&gt;矩阵变换(Matrix transformations)&lt;/h3&gt;
+
 &lt;p&gt;threejs使用矩阵来实现3D动画的变化.每个Object3D对象都有一个matrix,存储包含位置,旋转,缩放等数据&lt;/p&gt;
 
 &lt;p&gt;实现3D变化的方法有两种:&lt;/p&gt;
@@ -673,7 +673,7 @@ cube.matrix.setPosition(start_position);
 
 &lt;p&gt;threejs使用了如上两种听起来很高端听都没听过的方法来表示3d旋转&lt;/p&gt;
 
-&lt;h2 id=&quot;texture&quot;&gt;材质(texture)&lt;/h2&gt;
+&lt;h3 id=&quot;texture&quot;&gt;材质(texture)&lt;/h3&gt;
 
 &lt;p&gt;上面的例子创建了一个立方体,现在来实现材质渲染&lt;/p&gt;
 
@@ -702,7 +702,7 @@ loader.load(&#39;texture.png&#39;, textureLoad);
 
 &lt;p&gt;&lt;strong&gt;open /Applications/Google\ Chrome.app –args –allow-file-access-from-files&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;vrcontrol&quot;&gt;VRControl&lt;/h2&gt;
+&lt;h3 id=&quot;vrcontrol&quot;&gt;VRControl&lt;/h3&gt;
 
 &lt;p&gt;VRControls是threejs研发团队写的实现vr的依赖&lt;/p&gt;
 
@@ -935,7 +935,7 @@ loader.load(&#39;texture.png&#39;, textureLoad);
 
 &lt;p&gt;这个webapi可能会起到效果&lt;/p&gt;
 
-&lt;h2 id=&quot;notification&quot;&gt;Notification&lt;/h2&gt;
+&lt;h3 id=&quot;notification&quot;&gt;Notification&lt;/h3&gt;
 
 &lt;p&gt;Web Notifications API 使页面可以发出通知，通知将被显示在页面之外的系统层面上（通常使用操作系统的标准通知机制，但是在不同的平台和浏览器上的表现会有差异）。这个功能使  web 应用可以向用户发送信息，即使应用处于空闲状态。最明显的用例之一是一个网页版电子邮件应用程序，每当用户收到了一封新的电子邮件都需要通知用户，即使用户正在使用另一个应用程序。&lt;/p&gt;
 
@@ -943,7 +943,7 @@ loader.load(&#39;texture.png&#39;, textureLoad);
 
 &lt;p&gt;tower就是通过这个接口像用户发送通知消息的。&lt;/p&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;权限&lt;/h2&gt;
+&lt;h3 id=&quot;section&quot;&gt;权限&lt;/h3&gt;
 
 &lt;p&gt;使用Notification接口时需要像用户发送授权请求(如获取用户地址位置信息等需要用户隐私的接口都需要用户授权)&lt;/p&gt;
 
@@ -963,7 +963,8 @@ loader.load(&#39;texture.png&#39;, textureLoad);
 
 &lt;p&gt;*denied表示用户拒绝接受通知&lt;/p&gt;
 
-&lt;h2 id=&quot;notification-1&quot;&gt;Notification对象&lt;/h2&gt;
+&lt;h3 id=&quot;notification-1&quot;&gt;Notification对象&lt;/h3&gt;
+
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  var notification = new Notification(title,{
     body:string,
     icon:imageUrl
@@ -977,7 +978,7 @@ loader.load(&#39;texture.png&#39;, textureLoad);
 
 &lt;p&gt;&lt;img src=&quot;/images/post/20160701/notification.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;回调函数&lt;/h2&gt;
+&lt;h3 id=&quot;section-1&quot;&gt;回调函数&lt;/h3&gt;
 
 &lt;p&gt;notification有4个回调函数&lt;/p&gt;
 
@@ -1032,7 +1033,7 @@ loader.load(&#39;texture.png&#39;, textureLoad);
 
 &lt;p&gt;在前端实现节流函数一般是使用定时器实现&lt;/p&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;最简单的节流函数&lt;/h2&gt;
+&lt;h3 id=&quot;section-1&quot;&gt;最简单的节流函数&lt;/h3&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function throttle(){
     if(timer){
@@ -1045,7 +1046,7 @@ loader.load(&#39;texture.png&#39;, textureLoad);
 
 &lt;p&gt;这是最简单的节流函数。通过判断是否已经存在定时器,过滤掉用户之前的操作,直到delay计时完才进行函数执行&lt;/p&gt;
 
-&lt;h2 id=&quot;underscorethrottle&quot;&gt;underscore的throttle&lt;/h2&gt;
+&lt;h3 id=&quot;underscorethrottle&quot;&gt;underscore的throttle&lt;/h3&gt;
 
 &lt;p&gt;underscore是一个又好又快又小的库,快主要是因为他是采用函数式编程(来源于一位老师的话)&lt;/p&gt;
 
@@ -1062,7 +1063,7 @@ $(window).scroll(throttled);
 
 &lt;p&gt;所以通过throttle函数加以过滤可以大大提高渲染性能&lt;/p&gt;
 
-&lt;h2 id=&quot;vuedebounce&quot;&gt;vue的debounce&lt;/h2&gt;
+&lt;h3 id=&quot;vuedebounce&quot;&gt;vue的debounce&lt;/h3&gt;
 
 &lt;p&gt;vue框架自带的input的debounce实现也是节流函数的一种。(&lt;a href=&quot;https://vuejs.org/guide/forms.html#debounce&quot;&gt;文档&lt;/a&gt;)&lt;/p&gt;
 
