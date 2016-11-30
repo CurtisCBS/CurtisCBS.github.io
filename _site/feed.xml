@@ -5,17 +5,17 @@
     <description>Curtis&#39;s Blog</description>
     <link>http://chenbingshu.com///</link>
     <atom:link href="http://chenbingshu.com///feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 30 Nov 2016 10:06:48 +0800</pubDate>
-    <lastBuildDate>Wed, 30 Nov 2016 10:06:48 +0800</lastBuildDate>
+    <pubDate>Wed, 30 Nov 2016 10:30:46 +0800</pubDate>
+    <lastBuildDate>Wed, 30 Nov 2016 10:30:46 +0800</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
         <title>firebase部署入门</title>
-        <description>&lt;p&gt;##一句话简介&lt;/p&gt;
+        <description>&lt;h2 id=&quot;section&quot;&gt;一句话简介&lt;/h2&gt;
 
 &lt;p&gt;Firebase 是一个移动平台，可以帮助您快速开发高品质应用，扩大用户群，并赚取更多收益。Firebase 由多种互补功能组成，您可以自行组合和匹配这些功能以满足自己的需求。&lt;/p&gt;
 
-&lt;p&gt;##新建项目&lt;/p&gt;
+&lt;h2 id=&quot;section-1&quot;&gt;新建项目&lt;/h2&gt;
 
 &lt;p&gt;1.到firebase网站新建一个工程&lt;a href=&quot;https://console.firebase.google.com/?hl=zh-cn&quot;&gt;https://console.firebase.google.com/?hl=zh-cn&lt;/a&gt;&lt;/p&gt;
 
@@ -36,7 +36,7 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;##环境安装&lt;/p&gt;
+&lt;h2 id=&quot;section-2&quot;&gt;环境安装&lt;/h2&gt;
 
 &lt;p&gt;1.确保计算机已经安装node环境 &lt;a href=&quot;https://nodejs.org/en/download/&quot;&gt;node下载连接&lt;/a&gt;&lt;/p&gt;
 
