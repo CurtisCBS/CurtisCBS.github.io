@@ -5,7 +5,7 @@ date:   2016-12-09 9:15
 categories: [前端]
 ---
 
-# [vue-router](https://router.vuejs.org/)是为vue提供的官方路由，对于单页应用项目构建很方便
+### [vue-router](https://router.vuejs.org/)是为vue提供的官方路由，对于单页应用项目构建很方便
 
 # hashband是什么?
 
